@@ -7,12 +7,12 @@ import {
  } from 'react-native'
 
 interface props {
-    
+  style?: ViewStyle,
 }
 
-const checkbox = (
+export const TCheckbox = (
     {
-
+      style
     }:props
 ) => {
   return (
