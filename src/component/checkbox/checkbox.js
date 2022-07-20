@@ -1,6 +1,7 @@
 import { 
     View,
     Text,
+    TouchableOpacity,
 } from 'react-native'
 import React,{
     useEffect,
@@ -12,6 +13,7 @@ const checkbox = () => {
   return (
     <View>
       <Text>checkbox</Text>
+      <Text>dfgsdfgsfgd</Text>
     </View>
   )
 }
