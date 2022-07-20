@@ -14,6 +14,8 @@ const checkbox = () => {
     <View>
       <Text>checkbox</Text>
       <Text>dfgsdfgsfgd</Text>
+      <Text>checkbox</Text>
+      <Text>dfgsdfgsfgd</Text>
     </View>
   )
 }
