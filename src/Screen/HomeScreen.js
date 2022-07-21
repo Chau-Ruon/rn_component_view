@@ -27,9 +27,7 @@ export const HomeScreen = ({navigation}) => {
                 <TouchableOpacity style={styles.btnCheckbox} onPress={handleOnpress}>
                     <Text>Checkbox</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.btnCheckbox}>
-                    <Text>FD</Text>
-                </TouchableOpacity>
+             
             </ScrollView>
         </View>
     )
