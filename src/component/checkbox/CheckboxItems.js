@@ -149,7 +149,7 @@ const CheckBoxItem = (props) => {
     );
 };
 
-const Checkbox = (props) => {
+const CheckboxItems = (props) => {
     const {
         borderColor,
     } = props
@@ -206,7 +206,7 @@ const Checkbox = (props) => {
 
 }
 
-export default Checkbox
+export default CheckboxItems
 
 const styles = StyleSheet.create({
     containerItem: {

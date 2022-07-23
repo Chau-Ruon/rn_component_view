@@ -17,6 +17,12 @@ export const HomeScreen = ({navigation}) => {
     const handleOnpress = () => { 
         navigation.navigate("CheckboxScreen")
     }
+    const handleOnpressInputFlatlistScreen = () => { 
+        navigation.navigate("InputFlatlistScreen")
+    }
+    const InputFlatlistFormik = () => {
+        navigation.navigate("InputFomik")
+    }
     return (
         <View style={{
             flex: 1,
@@ -25,9 +31,14 @@ export const HomeScreen = ({navigation}) => {
         }}>
             <ScrollView>
                 <TouchableOpacity style={styles.btnCheckbox} onPress={handleOnpress}>
-                    <Text>Checkbox</Text>
+                    <Text style={styles.text}>Checkbox</Text>
                 </TouchableOpacity>
-             
+                <TouchableOpacity style={styles.btnCheckbox} onPress={handleOnpressInputFlatlistScreen}>
+                    <Text style={styles.text}>InputFlatlist</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btnCheckbox} onPress={InputFlatlistFormik}>
+                    <Text style={styles.text}>InputFlatlistFormik</Text>
+                </TouchableOpacity>
             </ScrollView>
         </View>
     )
@@ -39,7 +50,13 @@ const styles = StyleSheet.create({
         height:40,
         alignItems:"center",
         justifyContent:"center",
-        width:80,
+        marginTop:10,
         borderRadius: 8
-    }
+    },
+    text:{
+        marginHorizontal:10,
+        color:"white",
+        fontSize:15,
+        fontWeight:"bold",
+    },
 })
