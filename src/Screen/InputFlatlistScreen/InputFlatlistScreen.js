@@ -53,7 +53,7 @@ const InputFlatlistScreen = () => {
     
     const renderItem = (item,index) => {
         console.log(`inputsPrice`,inputsPrice);
-        console.log(`>>>>>>>>>>>>setInputsDecs`,inputsPrice);
+        console.log(`>>>>>>>>>>>>setInputsDecs`,inputsDecs);
         return(
             <View style={styles.container}>
                 <View style={styles.boxItem}>
@@ -89,7 +89,6 @@ const InputFlatlistScreen = () => {
                             style={styles.inputPrice}
                             onChangeText={text => {
                                 const newList = [...inputsPrice]
-                                console.log(`!!!!!!!!!!!!!!! ${newList}`);
                                 newList[index] = text;
                                 setInputsPrice(newList)
                             }}
