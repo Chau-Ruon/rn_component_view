@@ -9,7 +9,7 @@ import {HomeScreen} from "./Screen/HomeScreen";
 import CheckboxScreen from './Screen/Checkbox/CheckboxScreen'
 import InputFlatlistScreen from './Screen/InputFlatlistScreen/InputFlatlistScreen';
 import InputFomik from "./Screen/InputFlatlistScreen/InputFomik"
-
+import T from "./Screen/T/Flex"
 
 
 const Stack = createNativeStackNavigator();
@@ -27,6 +27,7 @@ export const App = () => {
                 <Stack.Screen name="CheckboxScreen" component={CheckboxScreen} />
                 <Stack.Screen name="InputFlatlistScreen" component={InputFlatlistScreen} />
                 <Stack.Screen name="InputFomik" component={InputFomik} />
+                <Stack.Screen name="T" component={T} />
             </Stack.Navigator>
         </NavigationContainer>
     )

@@ -23,6 +23,9 @@ export const HomeScreen = ({navigation}) => {
     const InputFlatlistFormik = () => {
         navigation.navigate("InputFomik")
     }
+    const demo = () => {
+        navigation.navigate("T")
+    }
     return (
         <View style={{
             flex: 1,
@@ -38,6 +41,9 @@ export const HomeScreen = ({navigation}) => {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.btnCheckbox} onPress={InputFlatlistFormik}>
                     <Text style={styles.text}>InputFlatlistFormik</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btnCheckbox} onPress={demo}>
+                    <Text style={styles.text}>T</Text>
                 </TouchableOpacity>
             </ScrollView>
         </View>
