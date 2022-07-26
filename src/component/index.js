@@ -3,9 +3,10 @@ import {
     CheckboxArray,
     TCheckbox,
 } from "./Checkbox";
-// import InputFlatlist from "./InputInsideFlatlist/InputFlatlist";
+import BottomSheet from "./BottomSheet/index";
 export {
     Checkbox,
     CheckboxArray,
     TCheckbox,
+    BottomSheet,
 }
