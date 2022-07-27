@@ -66,14 +66,14 @@ const BottomSheet = forwardRef((props,ref) => {
     })
     .onUpdate((event) => {
         translateY.value = event.translationY + context.value.y;
-        translateY.value = Math.max(translateY.value, MAX_TRANSLATE_Y)
+        translateY.value = Math.max(translateY.value, destination)
     })
     .onEnd(()=>{
-        console.log(`xuong ${-height/3 + 260}`);
-        if (translateY.value > -height/3 + 140) {
+        console.log(`xuong ${     -height/3 + 130    }`);
+        if (translateY.value > -height/3 + 120) {
             scrollTo(0)
         }else if (translateY.value < -height/3 + 142) {
-            scrollTo(MAX_TRANSLATE_Y)
+            scrollTo(destination)
         }
     });
     const rBottomSheetStyle = useAnimatedStyle(() => {

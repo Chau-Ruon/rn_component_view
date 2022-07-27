@@ -50,7 +50,7 @@ export const data = [
   },
 ]
 
-const Flex = () => {
+const FlexComponent = () => {
   const [inputRateDesc,setInputRateDesc] = useState([]);
   const [inputCost,setInputCost] = useState([]);
   const renderItem = (item,index) => {
@@ -130,7 +130,7 @@ const Flex = () => {
   )
 }
 
-export default Flex
+export default FlexComponent
 
 const styles = StyleSheet.create({
   safeAreaView:{

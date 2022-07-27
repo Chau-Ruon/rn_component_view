@@ -9,7 +9,7 @@ import {HomeScreen} from "./Screen/HomeScreen";
 import CheckboxScreen from './Screen/Checkbox/CheckboxScreen'
 import InputFlatlistScreen from './Screen/InputFlatlistScreen/InputFlatlistScreen';
 import InputFomik from "./Screen/InputFlatlistScreen/InputFomik"
-import T from "./Screen/T/Flex"
+import FlexComponent from "./Screen/Flex/FlexComponent"
 import BottomSheet from "./Screen/BottomSheet/index";
 
 
@@ -28,7 +28,7 @@ export const App = () => {
                 <Stack.Screen name="CheckboxScreen" component={CheckboxScreen} />
                 <Stack.Screen name="InputFlatlistScreen" component={InputFlatlistScreen} />
                 <Stack.Screen name="InputFomik" component={InputFomik} />
-                <Stack.Screen name="T" component={T} />
+                <Stack.Screen name="FlexComponent" component={FlexComponent} />
                 <Stack.Screen name='BottomSheet' component={BottomSheet}/>
             </Stack.Navigator>
         </NavigationContainer>

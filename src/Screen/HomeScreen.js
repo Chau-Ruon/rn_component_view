@@ -24,7 +24,7 @@ export const HomeScreen = ({navigation}) => {
         navigation.navigate("InputFomik")
     }
     const demo = () => {
-        navigation.navigate("T")
+        navigation.navigate("FlexComponent")
     }
     const BottomSheet = () =>{
         navigation.navigate("BottomSheet");
