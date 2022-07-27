@@ -3,10 +3,11 @@ import {
     CheckboxArray,
     TCheckbox,
 } from "./Checkbox";
-import BottomSheet from "./BottomSheet/index";
+import BottomSheet,{scrollTo} from "./BottomSheet/index";
 export {
     Checkbox,
     CheckboxArray,
     TCheckbox,
     BottomSheet,
+    scrollTo
 }

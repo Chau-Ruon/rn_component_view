@@ -1,87 +1,128 @@
-import React, { useRef,useState,useEffect } from 'react'
+import React, {
+    useRef,
+    useState,
+    useEffect,
+    useCallback,
+    forwardRef,
+    
+} from 'react'
 import {
     View,
     Text,
     TouchableOpacity,
     TextInput,
     StyleSheet,
-    Animated,
     Dimensions,
-    Easing
+    Easing,
+    
 } from 'react-native'
+import {
+    GestureDetector,
+    Gesture,
+} from "react-native-gesture-handler"
+import Animated,{
+    useSharedValue,
+    useAnimatedStyle,
+    withTiming,
+    withSpring,
+    interpolate,
+    Extrapolate,
+} from 'react-native-reanimated';
+
 const {height,width} = Dimensions.get("window");
-const BottomSheet = (props) => {
-    const {visible,onRequestClose} = props
-    const animation = useRef(new Animated.Value(0)).current;
+const MAX_TRANSLATE_Y = -height + 350;
 
-    const backdrop = {
-        transform: [
-            {
-                translateY: animation.interpolate({
-                    inputRange: [0, 0.1],
-                    outputRange: [height, 0],
-                    extrapolate: "clamp",
-                }),
-            },
-        ],
-        opacity: animation.interpolate({
-            inputRange: [0.01, 0.5],
-            outputRange: [0, 1],
-            extrapolate: "clamp",
-        }),
-    };
+/**
+ * Yêu cầu import GestureHandlerRootView ở Screen trước khi gọi component 
+ * import { GestureHandlerRootView } from 'react-native-gesture-handler';
+ * <GestureHandlerRootView style={{ flex: 1 }}>
+            <View style={[styles.container]}>
+                ....
+                <BottomSheet 
+                    destination={destination}
+                    active={active}
+                >
+                    {children}
+                </BottomSheet>
+            </View>
+    </GestureHandlerRootView>
+ * 
+ * 
+*/
 
-    useEffect(()=>{
-        if(visible){
-            Animated.timing(animation, {
-              toValue:0.05,
-              duration: 4000,
-              useNativeDriver: true,
-              easing: Easing.linear,
-            }).start();
+
+const BottomSheet = forwardRef((props,ref) => {
+    const {children,active,destination} = props;
+    const translateY = useSharedValue(0);
+    const context = useSharedValue({ y: 0 });
+    console.log(`destination ${destination}`);
+    const scrollTo = useCallback(()=>{
+        'worklet';
+        translateY.value = withSpring(destination, {damping:50})
+    },[destination])
+    const gesture = Gesture.Pan()
+    .onStart(()=>{
+        context.value = { y: translateY.value}
+    })
+    .onUpdate((event) => {
+        translateY.value = event.translationY + context.value.y;
+        translateY.value = Math.max(translateY.value, MAX_TRANSLATE_Y)
+    })
+    .onEnd(()=>{
+        console.log(`xuong ${-height/3 + 260}`);
+        if (translateY.value > -height/3 + 140) {
+            scrollTo(0)
+        }else if (translateY.value < -height/3 + 142) {
+            scrollTo(MAX_TRANSLATE_Y)
         }
-    },[visible])
-    console.log(`visible: ${JSON.stringify(visible)}`);
-console.log(`onRequestClose: ${JSON.stringify(onRequestClose)}`);
-    const handleClose = () => {
-        // visible= false
-        onRequestClose;
-        Animated.timing(animation, {
-            toValue: 0,
-            duration: 2000,
-            useNativeDriver: true,
-        }).start();
-    };
+    });
+    const rBottomSheetStyle = useAnimatedStyle(() => {
+        // const borderRadius = interpolate(translateY.value,
+        //     [MAX_TRANSLATE_Y + 50, MAX_TRANSLATE_Y],
+        //     [25, 5],
+        //     Extrapolate.CLAMP,
+        // )
+        return {
+            // borderRadius,
+            transform:[{translateY: translateY.value}]
+        }
+    })
 
-    if(!visible) return null;
-    else return (
-        <View style={[styles.sheet]}>
-            <Animated.View style={[styles.popup, backdrop]}>
-                <TouchableOpacity onPress={handleClose}>
-                    <Text>Close</Text>
-                </TouchableOpacity>
+    useEffect(() => {
+        if (active) {
+            // console.log(`useEffect ############ ${active}`);
+            scrollTo(destination)
+        } else {
+            scrollTo(destination)
+        }
+    },[active])
+    return (
+        <GestureDetector gesture={gesture}>
+            <Animated.View style={[styles.bottomSheetContainer,rBottomSheetStyle]}>
+                <View style={styles.line}/>
+                {children}
             </Animated.View>
-        </View>
+        </GestureDetector>
     )
-}
-
+})
 export default BottomSheet
 
 const styles = StyleSheet.create({
-    sheet: {
-        position: "absolute",
-        overlayColor:"rgba(0,0,0,.5)",
+    bottomSheetContainer:{
         height: height,
-        width:width,
-        justifyContent: "flex-end",
+        width:"100%",
+        backgroundColor:"white",
+        position:"absolute",
+        top:height,
+        borderRadius:15,
+        
     },
-    popup: {
-        backgroundColor: "#FFF",
-        // marginHorizontal: 10,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-        minHeight: 300,
-        alignItems: "center",
-        justifyContent: "center",
-    },
+    line:{
+        width:75,
+        height:4,
+        borderRadius:15,
+        backgroundColor:'grey',
+        alignSelf:"center",
+        marginVertical:15,
+    }
 });
