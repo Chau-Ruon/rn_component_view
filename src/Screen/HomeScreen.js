@@ -29,6 +29,9 @@ export const HomeScreen = ({navigation}) => {
     const BottomSheet = () =>{
         navigation.navigate("BottomSheet");
     }
+    const OrtherBottomSheet = () =>{
+        navigation.navigate("OrtherBottomSheet");
+    }
     return (
         <View style={{
             flex: 1,
@@ -51,6 +54,10 @@ export const HomeScreen = ({navigation}) => {
                 <TouchableOpacity style={styles.btnCheckbox} onPress={BottomSheet}>
                     <Text style={styles.text}>Bottom Sheet</Text>
                 </TouchableOpacity>
+                <TouchableOpacity style={styles.btnCheckbox} onPress={OrtherBottomSheet}>
+                    <Text style={styles.text}>OrtherBottomSheet</Text>
+                </TouchableOpacity>
+                
             </ScrollView>
         </View>
     )

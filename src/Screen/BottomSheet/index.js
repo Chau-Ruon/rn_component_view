@@ -23,11 +23,14 @@ const SheetBottom = (props) => {
         if (active) {
             setdDestination(0)
         }else {
-            setdDestination(-500)
+            setdDestination(-300)
         }
     },[active])
     return (
-        <GestureHandlerRootView style={{ flex: 1 }}>
+        <GestureHandlerRootView style={{
+            flex: 1,
+
+        }}>
             <View style={[styles.container]}>
                 <TouchableOpacity style={styles.btnOpen} onPress={onPressOpen}>
                     <Text style={active ? styles.text : styles.text1}>Open</Text>
@@ -86,6 +89,6 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:'center',
         backgroundColor:"#fccb00",
-        top:200,
-    }
+        top:100,
+    },
 });

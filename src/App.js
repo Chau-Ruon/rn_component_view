@@ -11,7 +11,7 @@ import InputFlatlistScreen from './Screen/InputFlatlistScreen/InputFlatlistScree
 import InputFomik from "./Screen/InputFlatlistScreen/InputFomik"
 import FlexComponent from "./Screen/Flex/FlexComponent"
 import BottomSheet from "./Screen/BottomSheet/index";
-
+import OrtherBottomSheet from "./Screen/BottomSheet/OrtherBottomSheet"
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +30,8 @@ export const App = () => {
                 <Stack.Screen name="InputFomik" component={InputFomik} />
                 <Stack.Screen name="FlexComponent" component={FlexComponent} />
                 <Stack.Screen name='BottomSheet' component={BottomSheet}/>
+                <Stack.Screen name='OrtherBottomSheet' component={OrtherBottomSheet}/>
+                
             </Stack.Navigator>
         </NavigationContainer>
     )

@@ -55,7 +55,6 @@ const BottomSheet = forwardRef((props,ref) => {
     const {children,active,destination} = props;
     const translateY = useSharedValue(0);
     const context = useSharedValue({ y: 0 });
-    console.log(`destination ${destination}`);
     const scrollTo = useCallback(()=>{
         'worklet';
         translateY.value = withSpring(destination, {damping:50})
@@ -69,9 +68,10 @@ const BottomSheet = forwardRef((props,ref) => {
         translateY.value = Math.max(translateY.value, destination)
     })
     .onEnd(()=>{
-        console.log(`xuong ${     -height/3 + 130    }`);
-        if (translateY.value > -height/3 + 120) {
-            scrollTo(0)
+        console.log(`xuong ${-height/3 + 260}`);
+        if (translateY.value > -height/3 + 140) {
+            // scrollTo(0)
+            translateY.value = withSpring(destination, {damping:50})
         }else if (translateY.value < -height/3 + 142) {
             scrollTo(destination)
         }
@@ -90,7 +90,6 @@ const BottomSheet = forwardRef((props,ref) => {
 
     useEffect(() => {
         if (active) {
-            // console.log(`useEffect ############ ${active}`);
             scrollTo(destination)
         } else {
             scrollTo(destination)
