@@ -33,7 +33,8 @@ const ComponentOrtherBottomSheet = (props) => {
                 // The most recent move distance is gestureState.move{X,Y}
                 // The accumulated gesture distance since becoming responder is
                 // gestureState.d{x,y}
-                console.log(JSON.stringify(gestureState.dy));
+                // console.log(JSON.stringify(gestureState.dy));
+                animatedValue = gestureState.dy;
             },
         })
     ).current;
@@ -41,18 +42,13 @@ const ComponentOrtherBottomSheet = (props) => {
     const trans = () => {
         Animated.spring(animatedValue,{
             toValue: 500,
-            friction: 2,
+            // friction: 2,
             tension: 140,
+            damping: 50,
         }).start()
     }
-    const position = {
-        transform: [
-            {translateY: animatedValue.interpolate({
-                inputRange:[0,1],
-                outputRange:[10,0],
-            })}
-        ]
-    }
+    const position = {transform: [{translateY: animatedValue}]}
+    console.log(`akjfadjs: `,animatedValue);
     useEffect(() => {
         trans
     },[])
