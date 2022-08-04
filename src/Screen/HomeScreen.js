@@ -1,19 +1,67 @@
+import React from 'react'
 import { 
     View,
     Text,
     TouchableOpacity,
     ScrollView,
     StyleSheet,
+    FlatList,
+    Dimensions,
+    Image,
 } from 'react-native'
-import React from 'react'
+import FastImage from 'react-native-fast-image';
 
+const {width, height} = Dimensions.get("window");
 
-
-
-
-
+export const listView = [
+    {
+        id:1,
+        name:"Checkbox",
+        nameNavigate:"CheckboxScreen",
+        icon: require("../assets/rocketIcons.gif")
+    },
+    {
+        id:2,
+        name:"InputFlatlist",
+        nameNavigate:"InputFlatlistScreen",
+        icon: require("../assets/rocketIcons.gif")
+    },
+    {
+        id:3,
+        name:"InputFlatlistFormik",
+        nameNavigate:"InputFomik",
+        icon: require("../assets/rocketIcons.gif")
+    },
+    {
+        id:4,
+        name:"FlexComponent",
+        nameNavigate:"FlexComponent",
+        icon: require("../assets/rocketIcons.gif")
+    },
+    {
+        id:5,
+        name:"BottomSheet",
+        nameNavigate:"BottomSheet",
+        icon: require("../assets/rocketIcons.gif")
+    },
+    {
+        id:6,
+        name:"OrtherBottomSheet",
+        nameNavigate:"OrtherBottomSheet",
+        icon: require("../assets/rocketIcons.gif")
+    },
+    {
+        id:7,
+        name:"Map View",
+        nameNavigate:"MapView",
+        icon: require("../assets/rocketIcons.gif")
+    },
+]
 
 export const HomeScreen = ({navigation}) => {
+    const onpressHandle = (nameNavigate) => { 
+        navigation.navigate(nameNavigate)
+    }
     const handleOnpress = () => { 
         navigation.navigate("CheckboxScreen")
     }
@@ -38,7 +86,7 @@ export const HomeScreen = ({navigation}) => {
             justifyContent:"center",
             alignItems:"center",
         }}>
-            <ScrollView>
+            {/* <ScrollView>
                 <TouchableOpacity style={styles.btnCheckbox} onPress={handleOnpress}>
                     <Text style={styles.text}>Checkbox</Text>
                 </TouchableOpacity>
@@ -58,7 +106,62 @@ export const HomeScreen = ({navigation}) => {
                     <Text style={styles.text}>OrtherBottomSheet</Text>
                 </TouchableOpacity>
                 
-            </ScrollView>
+            </ScrollView> */}
+            <View style={
+                {
+                    marginBottom:20,
+                    backgroundColor:"#071f13"
+                }
+            }>
+                <FastImage source={require("../assets/reactNative.gif")} style={styles.imageLogo} />
+            </View>
+            <FlatList 
+                data={listView}
+                keyExtractor={item=>item.id}
+                numColumns={2}
+                renderItem={({item}) => {
+                    return(
+                        <View style={{
+                            width:width/2 -30,
+                            height:100,
+                            marginBottom:10,
+                            marginHorizontal:10,
+                            shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 1,
+                            },
+                            shadowOpacity: 0.22,
+                            shadowRadius: 2.22,
+                            elevation: 3,
+                        }}>
+                            <TouchableOpacity style={
+                                {
+                                    borderRadius:16,
+                                    height:"100%",
+                                    // marginBottom:5,
+                                    justifyContent:"center",
+                                    alignItems:"center",
+                                }
+                            } onPress={() => onpressHandle(item.nameNavigate)}>
+                                <FastImage style={
+                                    {
+                                        height:50,
+                                        width:50,
+                                    }
+                                } source={item.icon}/>
+                                <Text style={
+                                    {
+                                        color:"Black",
+                                        fontSize:17,
+                                        fontWeight:"bold",
+                                    }
+                                }>{item.name}</Text>
+                            </TouchableOpacity>
+                        </View>
+                    )
+                }}
+            />
         </View>
     )
 }
@@ -71,6 +174,10 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         marginTop:10,
         borderRadius: 8
+    },
+    imageLogo:{
+        height:210,
+        width:width,
     },
     text:{
         marginHorizontal:10,
