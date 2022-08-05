@@ -17,18 +17,18 @@ export const listView = [
     {
         id:1,
         name:"Checkbox",
-        nameNavigate:"CheckboxScreen",
+        nameNavigate:"Checkbox",
         icon: require("../assets/rocketIcons.gif")
     },
     {
         id:2,
         name:"InputFlatlist",
-        nameNavigate:"InputFlatlistScreen",
+        nameNavigate:"InputFlatlist",
         icon: require("../assets/rocketIcons.gif")
     },
     {
         id:3,
-        name:"InputFlatlistFormik",
+        name:"InputFomik",
         nameNavigate:"InputFomik",
         icon: require("../assets/rocketIcons.gif")
     },
@@ -62,51 +62,12 @@ export const HomeScreen = ({navigation}) => {
     const onpressHandle = (nameNavigate) => { 
         navigation.navigate(nameNavigate)
     }
-    const handleOnpress = () => { 
-        navigation.navigate("CheckboxScreen")
-    }
-    const handleOnpressInputFlatlistScreen = () => { 
-        navigation.navigate("InputFlatlistScreen")
-    }
-    const InputFlatlistFormik = () => {
-        navigation.navigate("InputFomik")
-    }
-    const demo = () => {
-        navigation.navigate("FlexComponent")
-    }
-    const BottomSheet = () =>{
-        navigation.navigate("BottomSheet");
-    }
-    const OrtherBottomSheet = () =>{
-        navigation.navigate("OrtherBottomSheet");
-    }
     return (
         <View style={{
             flex: 1,
             justifyContent:"center",
             alignItems:"center",
         }}>
-            {/* <ScrollView>
-                <TouchableOpacity style={styles.btnCheckbox} onPress={handleOnpress}>
-                    <Text style={styles.text}>Checkbox</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.btnCheckbox} onPress={handleOnpressInputFlatlistScreen}>
-                    <Text style={styles.text}>InputFlatlist</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.btnCheckbox} onPress={InputFlatlistFormik}>
-                    <Text style={styles.text}>InputFlatlistFormik</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.btnCheckbox} onPress={demo}>
-                    <Text style={styles.text}>T</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.btnCheckbox} onPress={BottomSheet}>
-                    <Text style={styles.text}>Bottom Sheet</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.btnCheckbox} onPress={OrtherBottomSheet}>
-                    <Text style={styles.text}>OrtherBottomSheet</Text>
-                </TouchableOpacity>
-                
-            </ScrollView> */}
             <View style={
                 {
                     marginBottom:20,
