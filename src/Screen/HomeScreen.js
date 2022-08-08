@@ -56,6 +56,12 @@ export const listView = [
         nameNavigate:"MapView",
         icon: require("../assets/rocketIcons.gif")
     },
+    {
+        id:8,
+        name:"Show Alert",
+        nameNavigate:"ShowAlert",
+        icon: require("../assets/rocketIcons.gif")
+    },
 ]
 
 export const HomeScreen = ({navigation}) => {

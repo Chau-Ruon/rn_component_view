@@ -16,7 +16,7 @@ import FlexComponent from "./Screen/Flex/FlexComponent"
 import BottomSheet from "./Screen/BottomSheet/index";
 import OrtherBottomSheet from "./Screen/BottomSheet/OrtherBottomSheet"
 import MapView from "./Screen/MapView/index"
-
+import ShowAlert from "./Screen/Alert/index"
 
 
 
@@ -48,6 +48,7 @@ export const App = () => {
                 <Stack.Screen name='BottomSheet' component={BottomSheet}/>
                 <Stack.Screen name='OrtherBottomSheet' component={OrtherBottomSheet}/>
                 <Stack.Screen name='MapView' component={MapView} options={optionsView("Map View")}/>
+                <Stack.Screen name='ShowAlert' component={ShowAlert} options={optionsView("Show Alert")}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
