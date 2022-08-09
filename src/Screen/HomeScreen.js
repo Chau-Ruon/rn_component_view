@@ -9,6 +9,10 @@ import {
     Dimensions,
     Image,
 } from 'react-native'
+import {
+    ReactNative,
+    RocketIcons,
+} from './../assets/index'
 import FastImage from 'react-native-fast-image';
 
 const {width, height} = Dimensions.get("window");
@@ -18,49 +22,49 @@ export const listView = [
         id:1,
         name:"Checkbox",
         nameNavigate:"Checkbox",
-        icon: require("../assets/rocketIcons.gif")
+        icon: RocketIcons,
     },
     {
         id:2,
         name:"InputFlatlist",
         nameNavigate:"InputFlatlist",
-        icon: require("../assets/rocketIcons.gif")
+        icon: RocketIcons,
     },
     {
         id:3,
         name:"InputFomik",
         nameNavigate:"InputFomik",
-        icon: require("../assets/rocketIcons.gif")
+        icon: RocketIcons,
     },
     {
         id:4,
         name:"FlexComponent",
         nameNavigate:"FlexComponent",
-        icon: require("../assets/rocketIcons.gif")
+        icon: RocketIcons,
     },
     {
         id:5,
         name:"BottomSheet",
         nameNavigate:"BottomSheet",
-        icon: require("../assets/rocketIcons.gif")
+        icon: RocketIcons,
     },
     {
         id:6,
         name:"OrtherBottomSheet",
         nameNavigate:"OrtherBottomSheet",
-        icon: require("../assets/rocketIcons.gif")
+        icon: RocketIcons,
     },
     {
         id:7,
         name:"Map View",
         nameNavigate:"MapView",
-        icon: require("../assets/rocketIcons.gif")
+        icon: RocketIcons,
     },
     {
         id:8,
         name:"Show Alert",
         nameNavigate:"ShowAlert",
-        icon: require("../assets/rocketIcons.gif")
+        icon: RocketIcons,
     },
 ]
 
@@ -80,7 +84,7 @@ export const HomeScreen = ({navigation}) => {
                     backgroundColor:"#071f13"
                 }
             }>
-                <FastImage source={require("../assets/reactNative.gif")} style={styles.imageLogo} />
+                <FastImage source={ReactNative} style={styles.imageLogo} />
             </View>
             <FlatList 
                 data={listView}
