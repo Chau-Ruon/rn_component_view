@@ -24,39 +24,38 @@ const ComponentOrtherBottomSheet = (props) => {
     } = props;
     const styles = styleWithProps();
     const animatedValue = useRef(new Animated.Value(0)).current;
-
+    // const [gestureStateY,setGestureStateY] = useState(0);
     const panResponder = useRef(
         PanResponder.create({
             onMoveShouldSetPanResponder: (evt, gestureState) => true,
             onMoveShouldSetPanResponderCapture: (evt, gestureState) =>true,
+            
+            // khi đang di chuyển ngon tay trên màng hình
             onPanResponderMove: (evt, gestureState) => {
-                // The most recent move distance is gestureState.move{X,Y}
-                // The accumulated gesture distance since becoming responder is
-                // gestureState.d{x,y}
-                // console.log(JSON.stringify(gestureState.dy));
-                animatedValue = gestureState.dy;
+                animatedValue.setValue(gestureState.dy);
             },
+
+            // khi thả tay, có kết quả cuối cùng
+            onPanResponderRelease: (e, gestureState) => {
+                console.log("🚀 ~ file: ComponentOrtherBottomSheet.js ~ line 40 ~ ComponentOrtherBottomSheet ~ gesture", gestureState.dy)
+                // console.log(animatedValue);
+            }
         })
     ).current;
 
-    const trans = () => {
+
+    const transspring = (destination) => {
         Animated.spring(animatedValue,{
-            toValue: 500,
-            // friction: 2,
-            tension: 140,
-            damping: 50,
+            toValue: destination,
+            useNativeDriver: true,
         }).start()
     }
     const position = {transform: [{translateY: animatedValue}]}
-    console.log(`akjfadjs: `,animatedValue);
-    useEffect(() => {
-        trans
-    },[])
+
     return (
-        <View style={styles.container}>
-            <Animated.View style={[styles.modal,position]}>
-                <View style={styles.viewLine}
-                {...panResponder.panHandlers}>
+        <View style={styles.container} >
+            <Animated.View style={[styles.modal,position]} {...panResponder.panHandlers}>
+                <View style={styles.viewLine}>
                     <View style={styles.line} />
                 </View>
 
