@@ -9,15 +9,20 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 import {HomeScreen} from "./Screen/HomeScreen";
-import CheckboxScreen from './Screen/Checkbox/CheckboxScreen'
+import {
+    TCheckbox,
+    Checkbox,
+    CheckboxArray,
+} from './component/Checkbox/index'
+import {IndexScreen} from './Screen/Checkbox/IndexScreen'
 import InputFlatlistScreen from './Screen/InputFlatlistScreen/InputFlatlistScreen';
-import InputFomik from "./Screen/InputFlatlistScreen/InputFomik"
+import InputFomik from "./Screen/InputFlatlistScreen/InputFomik";
 import FlexComponent from "./Screen/Flex/FlexComponent"
 import BottomSheet from "./Screen/BottomSheet/index";
 import OrtherBottomSheet from "./Screen/BottomSheet/OrtherBottomSheet"
 import MapView from "./Screen/MapView/index"
 import ShowAlert from "./Screen/Alert/index"
-
+// import CheckboxArray from "./Screen/Checkbox/CheckboxScreen"
 
 
 const screenOptions = {
@@ -41,7 +46,14 @@ export const App = () => {
         <NavigationContainer >
             <Stack.Navigator>
                 <Stack.Screen name="HomeScreen" component={HomeScreen} options={screenOptions} />
-                <Stack.Screen name="Checkbox" component={CheckboxScreen} />
+                
+                {/* Checkbox */}
+                <Stack.Screen name="Checkbox" component={IndexScreen} />
+                <Stack.Screen name="TCheckbox" component={TCheckbox} />
+                <Stack.Screen name="CheckboxItems" component={Checkbox} />
+                <Stack.Screen name="CheckboxArray" component={CheckboxArray} />
+                
+
                 <Stack.Screen name="InputFlatlist" component={InputFlatlistScreen} />
                 <Stack.Screen name="InputFomik" component={InputFomik} />
                 <Stack.Screen name="FlexComponent" component={FlexComponent} />

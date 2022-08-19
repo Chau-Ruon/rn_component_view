@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
   TextStyle,
+  Dimensions,
 } from 'react-native'
 
 interface props {
@@ -18,6 +19,7 @@ interface props {
   labelStyle?: TextStyle,
   onChange: ()=>void,
 }
+const {width,height } = Dimensions.get('window');
 
 export const TCheckbox = (
   {
@@ -30,37 +32,44 @@ export const TCheckbox = (
   }:props
 ) => {
   return (
+    // View bao ở ngoài bỏ
     <View style={{
-      flexDirection:"row",
+      flex:1,
       alignItems:"center",
+      justifyContent:"center",
     }}>
-      <TouchableOpacity 
-        activeOpacity={1}
-        style={{
-          justifyContent:"center",
-          alignItems:"center",
-        }}
-        onPress={onChange}
-      >
-        <View style={[
-          styles.outSide,
-          borderStyle,
-        ]}>
+      <View style={{
+        backgroundColor:"blue",
+        width
+      }}>
+        <TouchableOpacity 
+          activeOpacity={1}
+          style={{
+            justifyContent:"center",
+            alignItems:"center",
+          }}
+          onPress={onChange}
+        >
           <View style={[
-            styles.inSide,
-            checkedStyle
-          ]}/>
-        </View>
-      </TouchableOpacity>
-      { label && 
-        <Text 
-          style={[
-            styles.label,
-            labelStyle,
+            styles.outSide,
+            borderStyle,
           ]}>
-          {label}
-        </Text>
-      }
+            <View style={[
+              styles.inSide,
+              checkedStyle
+            ]}/>
+          </View>
+        </TouchableOpacity>
+        { label && 
+          <Text 
+            style={[
+              styles.label,
+              labelStyle,
+            ]}>
+            {label}
+          </Text>
+        }
+      </View>
     </View>
   )
 }

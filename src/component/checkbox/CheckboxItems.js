@@ -172,13 +172,13 @@ const CheckboxItems = (props) => {
                 isChecked.map((item, idx) => {
                     return (
                         <CheckBoxItem
-                        key={`${idx}`}
-                        color={"#db3e00"}
-                        borderWidth={2}
-                        onChange={() => onChange(idx)}
-                        isChecked={item}
-                        style={styles.containerItem}
-                    />
+                            key={`${idx}`}
+                            color={"#db3e00"}
+                            borderWidth={2}
+                            onChange={() => onChange(idx)}
+                            isChecked={item}
+                            style={styles.containerItem}
+                        />
                     );
                 })
             }

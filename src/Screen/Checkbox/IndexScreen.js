@@ -12,63 +12,35 @@ import {
 import {
     ReactNative,
     RocketIcons,
-} from './../assets/index'
+    Listen,
+    Moon
+} from '../../assets/index'
 import FastImage from 'react-native-fast-image';
 
 const {width, height} = Dimensions.get("window");
 
 export const listView = [
     {
+        id:0,
+        name:"Checkbox Array",
+        nameNavigate:"CheckboxArray",
+        icon: Moon,
+    },
+    {
         id:1,
-        name:"Checkbox",
-        nameNavigate:"Checkbox",
-        icon: RocketIcons,
+        name:"Checkbox Items",
+        nameNavigate:"CheckboxItems",
+        icon: Moon,
     },
     {
         id:2,
-        name:"InputFlatlist",
-        nameNavigate:"InputFlatlist",
-        icon: RocketIcons,
-    },
-    {
-        id:3,
-        name:"InputFomik",
-        nameNavigate:"InputFomik",
-        icon: RocketIcons,
-    },
-    {
-        id:4,
-        name:"FlexComponent",
-        nameNavigate:"FlexComponent",
-        icon: RocketIcons,
-    },
-    {
-        id:5,
-        name:"BottomSheet",
-        nameNavigate:"BottomSheet",
-        icon: RocketIcons,
-    },
-    {
-        id:6,
-        name:"OrtherBottomSheet",
-        nameNavigate:"OrtherBottomSheet",
-        icon: RocketIcons,
-    },
-    {
-        id:7,
-        name:"Map View",
-        nameNavigate:"MapView",
-        icon: RocketIcons,
-    },
-    {
-        id:8,
-        name:"Show Alert",
-        nameNavigate:"ShowAlert",
-        icon: RocketIcons,
+        name:"Checkbox",
+        nameNavigate:"TCheckbox",
+        icon: Moon,
     },
 ]
 
-export const HomeScreen = ({navigation}) => {
+export const IndexScreen = ({navigation}) => {
     const onpressHandle = (nameNavigate) => { 
         navigation.navigate(nameNavigate)
     }
@@ -128,8 +100,8 @@ const styles = StyleSheet.create({
         alignItems:"center",
     },
     icon:{
-        height:50,
-        width:50,
+        height:80,
+        width:80,
     },
     title:{
         color:"Black",
