@@ -6,14 +6,13 @@ import {
     StyleSheet,
 } from 'react-native'
 import {DraggableBottomView} from '../../component/index'
+import ViewComB from './ViewComB'
 const OrtherBottomSheet = () => {
     const [show,setShow] = useState(false);
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.btn} onPress={()=> setShow(!show)}>
-                <Text>BottomSheet</Text>
-            </TouchableOpacity>
+            <ViewComB onpen={setShow}/>
             <DraggableBottomView active={show} hideBottomSheet={setShow}>
                 {console.log("🚀 ~ file: OrtherBottomSheet.js ~ line 18 ~ OrtherBottomSheet ~ setShow", setShow)}
                 <Text>kdsjhksadsfasasdf123d</Text>
