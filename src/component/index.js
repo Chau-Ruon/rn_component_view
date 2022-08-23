@@ -4,12 +4,12 @@ import {
     TCheckbox,
 } from "./Checkbox";
 import BottomSheet from "./BottomSheet/index";
-import ComponentOrtherBottomSheet from "./BottomSheet/ComponentOrtherBottomSheet"
+import DraggableBottomView from "./BottomSheet/DraggableBottomView"
 
 export {
     Checkbox,
     CheckboxArray,
     TCheckbox,
     BottomSheet,
-    ComponentOrtherBottomSheet,
+    DraggableBottomView
 }

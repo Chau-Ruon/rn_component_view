@@ -1,71 +1,43 @@
-import React,{
-    useCallback,
-    useEffect,
-    useState,
-} from 'react'
+import React,{useState,useEffect} from 'react'
 import {
-    StyleSheet,
-    Text,
     View,
+    Text,
     TouchableOpacity,
+    StyleSheet,
 } from 'react-native'
-
-import {
-    ComponentOrtherBottomSheet,
-} from "../../component/index";
-
-import { useDispatch,useSelector } from 'react-redux';
-import {
-    getCancelComplete,
-    setCancelComplete,
-} from "../../data/userData"
-
+import {DraggableBottomView} from '../../component/index'
 const OrtherBottomSheet = () => {
-    const styles = styleWithProps();
-    const dispatch = useDispatch();
-    const cancelComplete = useSelector(getCancelComplete);
-
-    const openBottomSheet = () => {
-        dispatch(setCancelComplete({
-            destination: -300,
-            activeBottomSheet: true,
-        }))
-    }
+    const [show,setShow] = useState(false);
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.btnOpen} onPress={openBottomSheet}>
-                <Text style={styles.text}>Open</Text>
+            <TouchableOpacity style={styles.btn} onPress={()=> setShow(!show)}>
+                <Text>BottomSheet</Text>
             </TouchableOpacity>
-            <ComponentOrtherBottomSheet active={cancelComplete.activeBottomSheet} destination={cancelComplete.destination}>
-
-            </ComponentOrtherBottomSheet>
+            <DraggableBottomView active={show} hideBottomSheet={setShow}>
+                {console.log("🚀 ~ file: OrtherBottomSheet.js ~ line 18 ~ OrtherBottomSheet ~ setShow", setShow)}
+                <Text>kdsjhksadsfasasdf123d</Text>
+            </DraggableBottomView>
         </View>
     )
 }
 
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        alignItems:"center",
+        justifyContent:"center"
+    },
+    btn:{
+        position:'absolute',
+        top: 0,
+        height:50,
+        width:90,
+        backgroundColor:"#c1e1c5",
+        borderRadius:8,
+        alignItems:"center",
+        justifyContent:"center"
+    }
+})
+
 export default OrtherBottomSheet
-
-const styleWithProps = () => {
-    return StyleSheet.create({
-        container:{
-            flex:1,
-            backgroundColor:"#d5cf93",
-            alignItems:"center",
-            justifyContent:"center",
-        },
-        btnOpen:{
-            backgroundColor:'red',
-            width:60,
-            height:50,
-            alignItems:"center",
-            justifyContent:"center",
-            borderRadius:18,
-        },
-        text:{
-            fontSize:16,
-            fontWeight:"bold",
-
-        },
-    });
-  };

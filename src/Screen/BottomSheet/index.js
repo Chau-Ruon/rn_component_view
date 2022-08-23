@@ -18,19 +18,23 @@ const {height,width} = Dimensions.get("window");
 const SheetBottom = (props) => {
     const [active,setActive] = useState(false);
     const [destination,setdDestination] = useState(0)
-    const onPressOpen = useCallback(()=>{
+    // const onPressOpen = useCallback(()=>{
+    //     setActive(!active);
+    //     if (active) {
+    //         // setdDestination(-400)
+    //     }else {
+    //         setdDestination(-300)
+    //     }
+    // },[active])
+    const onPressOpen = () => {
         setActive(!active);
-        if (active) {
-            setdDestination(0)
-        }else {
+        if (!active) {
+            console.log("🚀 ~ file: index.js ~ line 32 ~ onPressOpen ~ active", active)
             setdDestination(-300)
         }
-    },[active])
+    }
     return (
-        <GestureHandlerRootView style={{
-            flex: 1,
-
-        }}>
+        <GestureHandlerRootView style={{flex: 1,}}>
             <View style={[styles.container]}>
                 <TouchableOpacity style={styles.btnOpen} onPress={onPressOpen}>
                     <Text style={active ? styles.text : styles.text1}>Open</Text>
@@ -40,9 +44,9 @@ const SheetBottom = (props) => {
                     active={active}
                 >
                     <View style={styles.inner}>
-                        <Text>Chơi hack não nhau không ta ơi!</Text>
+                        <Text>Crtyretyertyeryrtyrtyrty!</Text>
                         <TouchableOpacity onPress={onPressOpen} style={styles.btnClose}>
-                            <Text>Biến Về Liền :(</Text>
+                            <Text>Xuong</Text>
                         </TouchableOpacity>
                     </View>
                 </BottomSheet>

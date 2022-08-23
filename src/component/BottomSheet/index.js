@@ -68,11 +68,14 @@ const BottomSheet = forwardRef((props,ref) => {
         translateY.value = Math.max(translateY.value, destination)
     })
     .onEnd(()=>{
-        console.log(`xuong ${-height/3 + 260}`);
-        if (translateY.value > -height/3 + 140) {
-            // scrollTo(0)
-            translateY.value = withSpring(destination, {damping:50})
-        }else if (translateY.value < -height/3 + 142) {
+        console.log("🚀 ~ file: index.js ~ line 73 ~ .onEnd ~ translateY.value", translateY.value)
+        console.log(`xuong ${destination/2 - 2}`);
+        if (translateY.value > destination/2) {
+            console.log(`kjdhsfkj`,destination - destination);
+            scrollTo(destination - destination)
+            // translateY.value = withSpring(destination, {damping:50})
+        }else if (translateY.value < destination/2 - 2) {
+            console.log(`!!!!!!!!!!!!!!!!!!!!`);
             scrollTo(destination)
         }
     });
@@ -91,10 +94,19 @@ const BottomSheet = forwardRef((props,ref) => {
     useEffect(() => {
         if (active) {
             scrollTo(destination)
-        } else {
-            scrollTo(destination)
         }
+        //  else {
+        //     scrollTo(destination)
+        // }
     },[active])
+    useEffect(() => {
+        if (translateY.value > destination/2) {
+            scrollTo(0)
+        }
+        //  else {
+        //     scrollTo(destination)
+        // }
+    },[])
     return (
         <GestureDetector gesture={gesture}>
             <Animated.View style={[styles.bottomSheetContainer,rBottomSheetStyle]}>
