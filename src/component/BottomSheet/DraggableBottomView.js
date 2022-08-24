@@ -1,4 +1,4 @@
-import React, {useRef,useEffect} from 'react';
+import React, {useRef,useState,useEffect} from 'react';
 import {
     Animated,
     PanResponder,
@@ -21,16 +21,16 @@ const MAX_DOWNWARD_TRANSLATE_Y = 0;
 const DRAG_THRESHOLD = 50;
 
 const DraggableBottomView = ({children,active,...props}) => {
+    // console.log("🚀 ~ file: DraggableBottomView.js ~ line 24 ~ DraggableBottomView ~ active", active)
     const {hideBottomSheet} = props;
-    const animatedValue = useRef(new Animated.Value(0)).current;
+    const animatedValue = useRef(new Animated.Value(0)).current;  
     const lastGestureDy = useRef(0);
 
     useEffect(() => {
         if (active) {
             springAnimation('up');
-        }
-        if (lastGestureDy.current !== 0) {
-            hideBottomSheet(false)
+        }else{
+            springAnimation('down');
         }
     }, [active])
 
@@ -46,20 +46,23 @@ const DraggableBottomView = ({children,active,...props}) => {
         onPanResponderRelease: (e, gesture) => {
             animatedValue.flattenOffset();
             if (gesture.dy > 0) {
-            // is dragging down
-            if (lastGestureDy.current !== 0 && gesture.dy <= DRAG_THRESHOLD) {
-                console.log("🚀 ~ file: DraggableBottomView.js ~ line 45 ~ DraggableBottomView ~ lastGestureDy.current", lastGestureDy.current)
-                springAnimation('up');
+                if (lastGestureDy.current !== 0 && gesture.dy <= DRAG_THRESHOLD) {
+                    springAnimation('up');
+                } else {
+                    springAnimation('down');
+                }
+                hideBottomSheet(false)
+
             } else {
-                springAnimation('down');
-            }
-            } else {
-            // is dragging up
-            if (gesture.dy >= -DRAG_THRESHOLD) {
-                springAnimation('down');
-            } else {
-                springAnimation('up');
-            }
+                if(gesture.dy !== 0){
+                    hideBottomSheet(true)
+                }
+                
+                if (gesture.dy >= -DRAG_THRESHOLD) {
+                    springAnimation('down');
+                } else {
+                    springAnimation('up');
+                }
             }
         },
         }),
@@ -120,31 +123,31 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderTopLeftRadius: 32,
         borderTopRightRadius: 32,
-      },
-  draggableArea: {
-    width: 100,
-    height:70,
-    alignSelf: 'center',
-    justifyContent: 'flex-end',
-    alignItems:"center",
-    paddingVertical: 1,
-    position: 'absolute',
-    top:-55,
-    // backgroundColor: 'white',
-    // backgroundColor: 'rgba(184,0,0,0.15)',
+    },
+    draggableArea: {
+        width: 100,
+        height:70,
+        alignSelf: 'center',
+        justifyContent: 'flex-end',
+        alignItems:"center",
+        paddingVertical: 1,
+        position: 'absolute',
+        top:-55,
+        // backgroundColor: 'white',
+        // backgroundColor: 'rgba(184,0,0,0.15)',
 
-  },
-  dragHandle: {
-    width: 100,
-    height: 6,
-    backgroundColor: '#d3d3d3',
-    borderRadius: 10,
-  },
-  childrenView:{
-    marginTop:20,
-    // backgroundColor:"#fcb900",
-    marginHorizontal:5,
-  }
+    },
+    dragHandle: {
+        width: 100,
+        height: 6,
+        backgroundColor: '#d3d3d3',
+        borderRadius: 10,
+    },
+    childrenView:{
+        marginTop:20,
+        // backgroundColor:"#fcb900",
+        marginHorizontal:5,
+    }
 });
 
 export default DraggableBottomView;

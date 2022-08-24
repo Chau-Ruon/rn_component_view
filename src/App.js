@@ -22,6 +22,7 @@ import BottomSheet from "./Screen/BottomSheet/index";
 import OrtherBottomSheet from "./Screen/BottomSheet/OrtherBottomSheet"
 import MapView from "./Screen/MapView/index"
 import ShowAlert from "./Screen/Alert/index"
+import HeaderTop from './Screen/Header/HeaderTab';
 // import CheckboxArray from "./Screen/Checkbox/CheckboxScreen"
 
 
@@ -61,6 +62,8 @@ export const App = () => {
                 <Stack.Screen name='OrtherBottomSheet' component={OrtherBottomSheet}/>
                 <Stack.Screen name='MapView' component={MapView} options={optionsView("Map View")}/>
                 <Stack.Screen name='ShowAlert' component={ShowAlert} options={optionsView("Show Alert")}/>
+                <Stack.Screen name='HeaderTop' component={HeaderTop}options={screenOptions} />
+                
             </Stack.Navigator>
         </NavigationContainer>
     )
