@@ -23,7 +23,10 @@ import OrtherBottomSheet from "./Screen/BottomSheet/OrtherBottomSheet"
 import MapView from "./Screen/MapView/index"
 import ShowAlert from "./Screen/Alert/index"
 import HeaderTop from './Screen/Header/HeaderTab';
-// import CheckboxArray from "./Screen/Checkbox/CheckboxScreen"
+import {Loading} from "./Screen/Loading/Loading";
+import {
+    LoadingDots
+} from './component/Loading/index'
 
 
 const screenOptions = {
@@ -63,6 +66,11 @@ export const App = () => {
                 <Stack.Screen name='MapView' component={MapView} options={optionsView("Map View")}/>
                 <Stack.Screen name='ShowAlert' component={ShowAlert} options={optionsView("Show Alert")}/>
                 <Stack.Screen name='HeaderTop' component={HeaderTop}options={screenOptions} />
+
+
+                {/* Loading */}
+                <Stack.Screen name='Loading' component={Loading}options={screenOptions} />
+                <Stack.Screen name='LoadingDots' component={LoadingDots} options={optionsView("Loading Dots")} />
                 
             </Stack.Navigator>
         </NavigationContainer>
