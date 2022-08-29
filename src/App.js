@@ -25,7 +25,8 @@ import ShowAlert from "./Screen/Alert/index"
 import HeaderTop from './Screen/Header/HeaderTab';
 import {Loading} from "./Screen/Loading/Loading";
 import {
-    LoadingDots
+    LoadingDots,
+    OrtherLoading,
 } from './component/Loading/index'
 
 
@@ -71,6 +72,7 @@ export const App = () => {
                 {/* Loading */}
                 <Stack.Screen name='Loading' component={Loading}options={screenOptions} />
                 <Stack.Screen name='LoadingDots' component={LoadingDots} options={optionsView("Loading Dots")} />
+                <Stack.Screen name='OrtherLoading' component={OrtherLoading} options={optionsView("Orther Loading Dots")} />
                 
             </Stack.Navigator>
         </NavigationContainer>

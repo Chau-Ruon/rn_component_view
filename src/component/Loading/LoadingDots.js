@@ -5,63 +5,112 @@ import {
     TouchableOpacity,
     Animated,
     Easing,
+    Dimensions,
     StyleSheet,
 } from 'react-native'
 
 
+const {width,height} = Dimensions.get("window");
 
 export const DotsOne = (props) => {
     const {
         color = [],
+        loading = false
     } = props;
-    const  DataDots = [1,2,3,4]
-    const AnimatedValue = useRef(new Animated.Value(0)).current;
+    const DataDots = color.map((val,idx) =>{
+        return idx
+    });
+    const AnimatedValueOne = useRef(new Animated.Value(0)).current;
+    const AnimatedValueTwo = useRef(new Animated.Value(0)).current;
+    const AnimatedValueThree = useRef(new Animated.Value(0)).current;
+    const AnimatedValueFour = useRef(new Animated.Value(0)).current;
+
+    const toValue = 8
+    const toValueDown = 0;
+    const duration = 90;
 
     useEffect(()=>{
         Animation();
-    },[])
+    },[loading])
 
-    const animations={
-        one : new Animated.Value(0),
-        two : new Animated.Value(0),
-        three : new Animated.Value(0),
-        four : new Animated.Value(0),
+    const translate = (animated) => {
+        return {
+            translateY:animated.interpolate({
+                inputRange: [0,10,20,30,],
+                outputRange: [0,-10,20,-30,]
+            }),
+        }
     }
 
     const Animation = () => {
-        Animated.timing(AnimatedValue,{
-            toValue:90,
-            duration:1000,
-            easing:Easing.linear
-            // useNativeDriver:true,
-        });
-    }
-
-    const translateY = {
-        transform:[
-            {
-                translateY: AnimatedValue.interpolate({
-                    inputRange: [0, 200],
-                    outputRange: [0, 200],
-                    extrapolate: "clamp",
+        Animated.loop(
+            Animated.sequence([
+                Animated.timing(AnimatedValueOne, {
+                    toValue: toValue,
+                    duration: duration,
+                    useNativeDriver:true,
                 }),
-            }
-        ]
+                Animated.timing(AnimatedValueTwo, {
+                    toValue: toValue,
+                    duration: duration,
+                    delay:-50,
+                    useNativeDriver:true,
+                }),
+                Animated.timing(AnimatedValueOne, {
+                    toValue: toValueDown,
+                    duration: duration,
+                    useNativeDriver:true,
+                }),
+                Animated.timing(AnimatedValueThree, {
+                    toValue: toValue,
+                    duration: duration,
+                    useNativeDriver:true,
+                }),
+                Animated.timing(AnimatedValueTwo, {
+                    toValue: toValueDown,
+                    duration: duration,
+                    useNativeDriver:true,
+                }),
+                Animated.timing(AnimatedValueFour, {
+                    toValue: toValue,
+                    duration: duration,
+                    useNativeDriver:true,
+                }),
+                Animated.timing(AnimatedValueThree, {
+                    toValue: toValueDown,
+                    duration: duration,
+                    useNativeDriver:true,
+                }),
+                Animated.timing(AnimatedValueFour, {
+                    toValue: toValueDown,
+                    duration: duration,
+                    useNativeDriver:true,
+                }),
+            ]),
+            // {
+            //   iterations: 4
+            // }
+        ).start()
     }
-
-    console.log(`translateY`,translateY.transform);
+    const arr = [
+        translate(AnimatedValueOne),
+        translate(AnimatedValueTwo),
+        translate(AnimatedValueThree),
+        translate(AnimatedValueFour)
+    ]
 
     return(
-        <View>
+        <View style={styles.containerDotsOne} >
             {
                 DataDots.map((ele,index) => {
                     return(
-                        <Animated.View style={[
-                            styles.containerDotsOne,
-                            {backgroundColor: color[index]},
-                            translateY
+                        <Animated.View key={index} style={[
+                            styles.itemDotsOne,
+                            {
+                                backgroundColor: color[index],
+                                transform:[arr[index]]
+                            },
                         ]}>
-
                         </Animated.View>
                     );
                 })
@@ -72,11 +121,13 @@ export const DotsOne = (props) => {
 
 
 const LoadingDots = () => {
+    const [loading,setLoading] = useState(false);
     return (
         <View style={styles.container}>
-            <View style={styles.dots}>
-                <DotsOne color={['#db3e00',"#fccb00",'#006b76','#8ED1FC']}/>
-            </View>
+            <TouchableOpacity style={styles.btnOpen} onPress={()=>setLoading(!loading)}>
+                <Text>Open</Text>
+            </TouchableOpacity>
+            {loading ? <DotsOne loading={loading} color={['#db3e00',"#fccb00",'#006b76','#8ED1FC']}/> : null}
         </View>
     )
 }
@@ -89,14 +140,27 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         flex:1,
     },
-    containerDotsOne:{
-        height:20,
-        width:20,
+    btnOpen:{
+        height:50,
+        width:60,
+        backgroundColor:"#a6ac32",
+        alignItems:"center",
+        justifyContent:"center",
         borderRadius:16,
-        marginRight:10,
     },
-    dots:{
+    containerDotsOne:{
+        // backgroundColor: "rgba(0,0,0,.5)",
+        position:"absolute",
+        height,
+        width,
         flexDirection:"row",
-       
+        alignItems:"center",
+        justifyContent:"center",
+    },
+    itemDotsOne:{
+        height: 15,
+        width: 15,
+        borderRadius:50,
+        marginRight:2,
     },
 })

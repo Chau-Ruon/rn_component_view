@@ -26,6 +26,12 @@ export const listView = [
         nameNavigate:"LoadingDots",
         icon: Moon,
     },
+    {
+        id:1,
+        name:"Orther Loading Dots",
+        nameNavigate:"OrtherLoading",
+        icon: Moon,
+    },
 ]
 
 export const Loading = ({navigation}) => {

@@ -78,13 +78,6 @@ const ComponentOrtherBottomSheet = (props) => {
     ).current;
 
 
-    const springAnima = (destination) => {
-        Animated.spring(animatedValue,{
-            toValue: destination,
-            damping:50,
-            useNativeDriver: true,
-        }).start()
-    }
     const springAnimation = (direction) => {
         lastGestureDy.current =
           direction === 'down' ? MAX_DOWNWARD_TRANSLATE_Y : MAX_UPWARD_TRANSLATE_Y;
