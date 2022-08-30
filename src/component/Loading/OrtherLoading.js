@@ -19,10 +19,10 @@ export const LoadingDots = (props) => {
     },[]);
 
     const animations = {
-        one: new Animated.Value(0),
-        two: new Animated.Value(0),
-        three: new Animated.Value(0),
-        // four: new Animated.Value(0),
+        one: useRef(new Animated.Value(0)).current,
+        two: useRef(new Animated.Value(0)).current,
+        three: useRef(new Animated.Value(0)).current,
+        four: useRef(new Animated.Value(0)).current,
     }
 
     const onAnimate = (animation,nextAnimation) => {
@@ -42,8 +42,11 @@ export const LoadingDots = (props) => {
     }
 
     const onStartAnimate = () =>{
+        const onFourAnimation = () => {
+            onAnimate(animations.four, onStartAnimate)
+        }
         const onThreeAnimation = () => {
-            onAnimate(animations.three, onStartAnimate)
+            onAnimate(animations.three, onFourAnimation)
         }
         const onTwoAnimation = () => {
             onAnimate(animations.two, onThreeAnimation)
@@ -77,6 +80,15 @@ export const LoadingDots = (props) => {
                 {
                     transform:[{
                         translateY: animations.three
+                    }]
+                }
+            ]}>
+            </Animated.View>
+            <Animated.View style={[
+                styles.itemDotsFour,
+                {
+                    transform:[{
+                        translateY: animations.four
                     }]
                 }
             ]}>
@@ -144,4 +156,11 @@ const styles = StyleSheet.create({
         marginRight:2,
         backgroundColor:"#8ED1FC",
     },
+    itemDotsFour:{
+        height: 15,
+        width: 15,
+        borderRadius:16,
+        marginRight:2,
+        backgroundColor:"#5e7664",
+    }
 })

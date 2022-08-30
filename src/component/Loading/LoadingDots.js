@@ -12,7 +12,7 @@ import {
 
 const {width,height} = Dimensions.get("window");
 
-export const DotsOne = (props) => {
+export const Loading = (props) => {
     const {
         color = [],
         loading = false
@@ -25,79 +25,59 @@ export const DotsOne = (props) => {
     const AnimatedValueThree = useRef(new Animated.Value(0)).current;
     const AnimatedValueFour = useRef(new Animated.Value(0)).current;
 
-    const toValue = 8
+    const toValue = -10
     const toValueDown = 0;
-    const duration = 90;
+    const duration = 250;
 
     useEffect(()=>{
-        Animation();
-    },[loading])
+        onStartAnimate();
+    },[])
 
-    const translate = (animated) => {
-        return {
-            translateY:animated.interpolate({
-                inputRange: [0,10,20,30,],
-                outputRange: [0,-10,20,-30,]
+    const Animation = (AnimatedValue,nextAnimation) => {
+        Animated.sequence([
+            Animated.timing(AnimatedValue, {
+                toValue: toValue,
+                duration: duration,
+                useNativeDriver:true,
             }),
-        }
+            Animated.timing(AnimatedValue, {
+                toValue: toValueDown,
+                duration: duration,
+                useNativeDriver:true,
+            }),
+        ]).start();
+        setTimeout(()=>{
+            nextAnimation()
+        },duration)
     }
-
-    const Animation = () => {
-        Animated.loop(
-            Animated.sequence([
-                Animated.timing(AnimatedValueOne, {
-                    toValue: toValue,
-                    duration: duration,
-                    useNativeDriver:true,
-                }),
-                Animated.timing(AnimatedValueTwo, {
-                    toValue: toValue,
-                    duration: duration,
-                    delay:-50,
-                    useNativeDriver:true,
-                }),
-                Animated.timing(AnimatedValueOne, {
-                    toValue: toValueDown,
-                    duration: duration,
-                    useNativeDriver:true,
-                }),
-                Animated.timing(AnimatedValueThree, {
-                    toValue: toValue,
-                    duration: duration,
-                    useNativeDriver:true,
-                }),
-                Animated.timing(AnimatedValueTwo, {
-                    toValue: toValueDown,
-                    duration: duration,
-                    useNativeDriver:true,
-                }),
-                Animated.timing(AnimatedValueFour, {
-                    toValue: toValue,
-                    duration: duration,
-                    useNativeDriver:true,
-                }),
-                Animated.timing(AnimatedValueThree, {
-                    toValue: toValueDown,
-                    duration: duration,
-                    useNativeDriver:true,
-                }),
-                Animated.timing(AnimatedValueFour, {
-                    toValue: toValueDown,
-                    duration: duration,
-                    useNativeDriver:true,
-                }),
-            ]),
-            // {
-            //   iterations: 4
-            // }
-        ).start()
-    }
-    const arr = [
-        translate(AnimatedValueOne),
-        translate(AnimatedValueTwo),
-        translate(AnimatedValueThree),
-        translate(AnimatedValueFour)
+    const arr = 
+    [
+        {
+            translateY: AnimatedValueOne
+        },
+        {
+            translateY: AnimatedValueTwo
+        },
+        {
+            translateY: AnimatedValueThree
+        },
+        {
+            translateY: AnimatedValueFour
+        },
     ]
+    
+    const onStartAnimate = () => {
+        const onFourAnimation = () => {
+            Animation(AnimatedValueFour, onStartAnimate)
+        }
+        const onThreeAnimation = () => {
+            Animation(AnimatedValueThree, onFourAnimation)
+        }
+        const onTwoAnimation = () => {
+            Animation(AnimatedValueTwo, onThreeAnimation)
+        }
+        Animation(AnimatedValueOne,onTwoAnimation);
+    }
 
     return(
         <View style={styles.containerDotsOne} >
@@ -124,10 +104,7 @@ const LoadingDots = () => {
     const [loading,setLoading] = useState(false);
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.btnOpen} onPress={()=>setLoading(!loading)}>
-                <Text>Open</Text>
-            </TouchableOpacity>
-            {loading ? <DotsOne loading={loading} color={['#db3e00',"#fccb00",'#006b76','#8ED1FC']}/> : null}
+            <Loading loading={loading} color={['#db3e00',"#fccb00",'#006b76','#8ED1FC']}/>
         </View>
     )
 }
@@ -158,9 +135,9 @@ const styles = StyleSheet.create({
         justifyContent:"center",
     },
     itemDotsOne:{
-        height: 15,
-        width: 15,
+        height: 10,
+        width: 5,
         borderRadius:50,
-        marginRight:2,
+        marginRight:5,
     },
 })

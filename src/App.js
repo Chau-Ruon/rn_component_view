@@ -23,10 +23,13 @@ import OrtherBottomSheet from "./Screen/BottomSheet/OrtherBottomSheet"
 import MapView from "./Screen/MapView/index"
 import ShowAlert from "./Screen/Alert/index"
 import HeaderTop from './Screen/Header/HeaderTab';
+import BottomTabScreen from './Screen/BottomTab/BottomTabScreen';
+import TBottomTabScreen from "./Screen/BottomTab/TBottomTabScreen"
 import {Loading} from "./Screen/Loading/Loading";
 import {
     LoadingDots,
     OrtherLoading,
+    Thu,
 } from './component/Loading/index'
 
 
@@ -51,7 +54,7 @@ export const App = () => {
         <NavigationContainer >
             <Stack.Navigator>
                 <Stack.Screen name="HomeScreen" component={HomeScreen} options={screenOptions} />
-                
+              
                 {/* Checkbox */}
                 <Stack.Screen name="Checkbox" component={IndexScreen} />
                 <Stack.Screen name="TCheckbox" component={TCheckbox} />
@@ -71,8 +74,14 @@ export const App = () => {
 
                 {/* Loading */}
                 <Stack.Screen name='Loading' component={Loading}options={screenOptions} />
-                <Stack.Screen name='LoadingDots' component={LoadingDots} options={optionsView("Loading Dots")} />
+                <Stack.Screen name='LoadingDots' component={LoadingDots} options={optionsView("Loading")} />
                 <Stack.Screen name='OrtherLoading' component={OrtherLoading} options={optionsView("Orther Loading Dots")} />
+                
+
+               
+                <Stack.Screen name='BottomTabScreen' component={BottomTabScreen} options={screenOptions}/>
+                <Stack.Screen name='TBottomTabScreen' component={TBottomTabScreen} options={screenOptions}/>
+                
                 
             </Stack.Navigator>
         </NavigationContainer>
