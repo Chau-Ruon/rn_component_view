@@ -15,10 +15,6 @@ public class MainActivity extends ReactActivity {
     return "componentView";
   }
 
-  @Override
-  protected void onCreate(Bundle saveInstanceState){
-    super.onCreate(null)
-  }
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. There the RootView is created and
