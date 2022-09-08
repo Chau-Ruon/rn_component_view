@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
         color:"Black",
         fontSize:17,
         fontWeight:"bold",
+        textAlign:"center",
     },
     btnCheckbox:{
         backgroundColor:"#1273de",

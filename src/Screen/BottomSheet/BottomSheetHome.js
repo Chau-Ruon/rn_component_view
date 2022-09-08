@@ -22,25 +22,25 @@ const {width, height} = Dimensions.get("window");
 export const listView = [
     {
         id:0,
-        name:"Checkbox Array",
-        nameNavigate:"CheckboxArray",
+        name:"Bottom Sheet",
+        nameNavigate:"GestureHandler",
         icon: Listen,
     },
     {
         id:1,
-        name:"Checkbox Items",
-        nameNavigate:"CheckboxItems",
+        name:"Orther Bottom Sheet",
+        nameNavigate:"OrtherBottomSheet",
         icon: Listen,
     },
     {
         id:2,
-        name:"TCheckbox",
-        nameNavigate:"TCheckbox",
+        name:"Draggable Bottom View",
+        nameNavigate:"DraggableBottomView",
         icon: Listen,
     },
 ]
 
-export const IndexScreen = ({navigation}) => {
+export const BottomSheetHome = ({navigation}) => {
     const onpressHandle = (nameNavigate) => { 
         navigation.navigate(nameNavigate)
     }
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
         color:"Black",
         fontSize:17,
         fontWeight:"bold",
+        textAlign:"center",
     },
     btnCheckbox:{
         backgroundColor:"#1273de",

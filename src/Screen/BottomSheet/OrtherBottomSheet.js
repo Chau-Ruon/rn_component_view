@@ -4,11 +4,16 @@ import {
     Text,
     TouchableOpacity,
     StyleSheet,
+    Dimensions,
 } from 'react-native'
 import { RadioButton } from "react-native-paper";
 
 import {DraggableBottomView} from '../../component/index'
 import ViewComB from './ViewComB'
+
+
+const {width,height} = Dimensions.get("window");
+
 const OrtherBottomSheet = () => {
     const [show,setShow] = useState(false);
     
@@ -25,7 +30,6 @@ const OrtherBottomSheet = () => {
     return (
         <View style={styles.container}>
             <ViewComB onpen={setShow}/>
-            { console.log("🚀 ~ file: OrtherBottomSheet.js ~ line 14 ~ OrtherBottomSheet ~ show", show)}
             <DraggableBottomView active={show} hideBottomSheet={setShow}>
                 <View style={styles.containerTop}>
                     <TouchableOpacity 
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
     },
     containerTop: {
         flexDirection: "row",
-        width: "100%",
+        width: width,
         justifyContent: "space-between",
         padding: 10,
       },

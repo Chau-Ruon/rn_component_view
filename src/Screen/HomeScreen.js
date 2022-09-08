@@ -45,41 +45,35 @@ export const listView = [
     {
         id:5,
         name:"BottomSheet",
-        nameNavigate:"BottomSheet",
+        nameNavigate:"BottomSheetHome",
         icon: RocketIcons,
     },
     {
         id:6,
-        name:"OrtherBottomSheet",
-        nameNavigate:"OrtherBottomSheet",
-        icon: RocketIcons,
-    },
-    {
-        id:7,
         name:"Map View",
         nameNavigate:"MapView",
         icon: RocketIcons,
     },
     {
-        id:8,
+        id:7,
         name:"Show Alert",
         nameNavigate:"ShowAlert",
         icon: RocketIcons,
     },
     {
-        id:9,
+        id:8,
         name:"Header Top",
         nameNavigate:"HeaderTop",
         icon: RocketIcons,
     },
     {
-        id:10,
+        id:9,
         name:"Loading",
         nameNavigate:"Loading",
         icon: RocketIcons,
     },
     {
-        id:11,
+        id:10,
         name:"BottomTab",
         nameNavigate:"BottomTabScreen",
         icon: RocketIcons,
@@ -153,6 +147,7 @@ const styles = StyleSheet.create({
         color:"Black",
         fontSize:17,
         fontWeight:"bold",
+        textAlign:"auto"
     },
     btnCheckbox:{
         backgroundColor:"#1273de",

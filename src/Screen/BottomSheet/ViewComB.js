@@ -9,7 +9,11 @@ import React from 'react'
 const ViewComB = (props) => {
   const {onpen} = props;
   return (
-    <View>
+    <View style={{
+      // justifyContent:"center",
+      // backgroundColor:"red",
+      flex:1,
+    }}>
         <TouchableOpacity style={styles.btn} onPress={()=> onpen(true)}>
             <Text>BottomSheet</Text>
         </TouchableOpacity>
@@ -18,8 +22,8 @@ const ViewComB = (props) => {
 }
 const styles = StyleSheet.create({
     btn:{
-        position:'absolute',
-        top: 0,
+        // position:'absolute',
+        // top: 0,
         height:50,
         width:90,
         backgroundColor:"#c1e1c5",

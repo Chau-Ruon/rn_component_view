@@ -8,7 +8,8 @@ import {
     Dimensions,
     Text,
     Keyboard,
-    TouchableHighlight
+    TouchableHighlight,
+    TouchableWithoutFeedback,
 } from 'react-native';
 
 
@@ -24,14 +25,17 @@ const DraggableBottomView = ({children,active,...props}) => {
     // console.log("🚀 ~ file: DraggableBottomView.js ~ line 24 ~ DraggableBottomView ~ active", active)
     const {hideBottomSheet} = props;
     const animatedValue = useRef(new Animated.Value(0)).current;  
+    const opacityValue = useRef(new Animated.Value(0)).current;  
     const lastGestureDy = useRef(0);
 
     useEffect(() => {
+        console.log("🚀 ~ file: DraggableBottomView.js ~ line 32 ~ useEffect ~ active", active)
         if (active) {
             springAnimation('up');
         }else{
             springAnimation('down');
         }
+        opacityAmin(active);
     }, [active])
 
     const panResponder = useRef(
@@ -69,45 +73,95 @@ const DraggableBottomView = ({children,active,...props}) => {
     ).current;
 
     const springAnimation = (direction) => {
-        lastGestureDy.current =
-        direction === 'down' ? MAX_DOWNWARD_TRANSLATE_Y : MAX_UPWARD_TRANSLATE_Y;
+        lastGestureDy.current = direction === 'down' ? MAX_DOWNWARD_TRANSLATE_Y : MAX_UPWARD_TRANSLATE_Y;
+        console.log("🚀 ~ file: DraggableBottomView.js ~ line 75 ~ springAnimation ~ direction", direction)
+        console.log("🚀 ~ file: DraggableBottomView.js ~ line 75 ~ springAnimation ~ lastGestureDy.current", lastGestureDy.current)
         Animated.spring(animatedValue, {
             toValue: lastGestureDy.current,
+            delay:200,
             useNativeDriver: true,
         }).start();
     };
 
+    const opacityAmin = (active) => {
+        console.log("🚀 ~ file: DraggableBottomView.js ~ line 103 ~ opacityAmin ~ active", active)
+        if (active) {
+            Animated.timing(
+                opacityValue,{
+                    toValue: 1,
+                    duration:1,
+                    useNativeDriver: true,
+                    // easing: Easing.linear,
+            }).start();
+        } else {
+            Animated.timing(
+                opacityValue,{
+                    toValue: -1,
+                    // duration:700,
+                    useNativeDriver: true,
+                    // easing: Easing.linear,
+            }).start();
+        }
+    }
+
     const bottomSheetAnimation = {
         transform: [
-        {
-            translateY: animatedValue.interpolate({
-            inputRange: [MAX_UPWARD_TRANSLATE_Y, MAX_DOWNWARD_TRANSLATE_Y],
-            outputRange: [MAX_UPWARD_TRANSLATE_Y, MAX_DOWNWARD_TRANSLATE_Y],
-            extrapolate: 'clamp',
-            }),
-        },
+            {
+                translateY: animatedValue.interpolate({
+                inputRange: [MAX_UPWARD_TRANSLATE_Y, MAX_DOWNWARD_TRANSLATE_Y],
+                outputRange: [MAX_UPWARD_TRANSLATE_Y, MAX_DOWNWARD_TRANSLATE_Y],
+                extrapolate: 'clamp',
+                }),
+            },
         ],
     };
+    
+    const opacityView = {
+        opacity: opacityValue.interpolate({
+            inputRange: [0, 2],
+            outputRange: [0, 2],
+            extrapolate: "clamp",
+        }),
+        zIndex:opacityValue.interpolate({
+            inputRange: [-1, 1],
+            outputRange: [-1, 0],
+            extrapolate: "clamp",
+        }),
+    }
 
     return (
-        <Animated.View style={[styles.bottomSheet, bottomSheetAnimation]}>
-            <View style={styles.draggableArea} {...panResponder.panHandlers}>
-                <View style={styles.dragHandle} pointerEvents={'none'} />
-            </View>
-            <View style={styles.childrenView}>
-                {children}
-            </View>
+        <Animated.View style={[styles.container,opacityView]} >
+            <Animated.View style={[styles.bottomSheet, bottomSheetAnimation]}>
+                <View style={styles.draggableArea} {...panResponder.panHandlers}>
+                    <View style={styles.dragHandle} pointerEvents={'none'} />
+                </View>
+                <View style={styles.childrenView}>
+                    {children}
+                </View>
+            </Animated.View>
         </Animated.View>
     );
 };
 
 const styles = StyleSheet.create({
+    container:{
+        position:"absolute",
+        backgroundColor: "rgba(0,0,0,.5)",
+        right:0,
+        left:0,
+        bottom:0,
+        height: height,
+        // zIndex:-1,
+    },
     bottomSheet: {
         zIndex:999,
         position: 'absolute',
-        width: '100%',
+        width: width,
         height: SHEET_MAX_HEIGHT,
         bottom: -SHEET_MAX_HEIGHT + SHEET_MIN_HEIGHT - 80,
+        backgroundColor:'white',
+        // bottom:0,
+        alignItems: "center",
         ...Platform.select({
           android: {elevation: 3},
           ios: {

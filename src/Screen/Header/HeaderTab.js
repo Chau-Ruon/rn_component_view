@@ -44,6 +44,7 @@ const  MyTabBar = ({ state, descriptors, navigation, position }) => {
         
                 const onPress = () => {
                     if (!isFocused) {
+                        console.log(`sfasdf`);
                         navigation.navigate(route.name);
                     }
                 };
@@ -63,6 +64,7 @@ const  MyTabBar = ({ state, descriptors, navigation, position }) => {
     
             return (
                 <TouchableOpacity
+                    // key={index}
                     accessibilityState={isFocused ? { selected: true } : {}}
                     accessibilityLabel={options.tabBarAccessibilityLabel}
                     testID={options.tabBarTestID}
@@ -170,7 +172,7 @@ const heightButton = 40;
 const styles = StyleSheet.create({
     header:{
         backgroundColor:"rgba(184,0,0,0.15)",
-        width:'100%',
+        width: width,
         height:50,
     },
     contaiterButton:{
