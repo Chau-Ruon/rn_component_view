@@ -25,7 +25,7 @@ import HeaderTop from './Screen/Header/HeaderTab';
 
 import BottomTabScreen from './Screen/BottomTab/BottomTabScreen';
 import TBottomTabScreen from "./Screen/BottomTab/TBottomTabScreen"
-import LightBoxImage from "./Screen/LightBox/LightBoxImage";
+import Modals from "./Screen/Modals/Index";
 import {Loading} from "./Screen/Loading/Loading";
 import {
     LoadingDots,
@@ -37,6 +37,8 @@ import {BottomSheetHome} from './Screen/BottomSheet/BottomSheetHome';
 import GestureHandler from "./Screen/BottomSheet/GestureHandler";
 import OrtherBottomSheet from './Screen/BottomSheet/OrtherBottomSheet';
 import {ComponentOrtherBottomSheet} from "./component/BottomSheet/index"
+import LightBox from './component/Modal/LightBox';
+import LightBoxScreen from './Screen/Modals/LightBoxScreen';
 
 const screenOptions = {
     headerTransparent: true,
@@ -93,7 +95,10 @@ export const App = () => {
                 <Stack.Screen name='BottomTabScreen' component={BottomTabScreen} options={screenOptions}/>
                 <Stack.Screen name='TBottomTabScreen' component={TBottomTabScreen} options={screenOptions}/>
                 
-                <Stack.Screen name='LightBoxImage' component={LightBoxImage} options={screenOptions}/>
+
+                {/* Modals */}
+                <Stack.Screen name='Modals' component={Modals} options={screenOptions}/>
+                <Stack.Screen name='LightBoxScreen' component={LightBoxScreen} options={screenOptions}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
