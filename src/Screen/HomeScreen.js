@@ -78,6 +78,13 @@ export const listView = [
         nameNavigate:"BottomTabScreen",
         icon: RocketIcons,
     },
+    {
+        id:11,
+        name:"Light Box",
+        nameNavigate:"LightBoxImage",
+        icon: RocketIcons,
+    },
+    
 ]
 
 export const HomeScreen = ({navigation}) => {

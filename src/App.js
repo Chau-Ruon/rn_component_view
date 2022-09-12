@@ -25,7 +25,7 @@ import HeaderTop from './Screen/Header/HeaderTab';
 
 import BottomTabScreen from './Screen/BottomTab/BottomTabScreen';
 import TBottomTabScreen from "./Screen/BottomTab/TBottomTabScreen"
-
+import LightBoxImage from "./Screen/LightBox/LightBoxImage";
 import {Loading} from "./Screen/Loading/Loading";
 import {
     LoadingDots,
@@ -93,7 +93,7 @@ export const App = () => {
                 <Stack.Screen name='BottomTabScreen' component={BottomTabScreen} options={screenOptions}/>
                 <Stack.Screen name='TBottomTabScreen' component={TBottomTabScreen} options={screenOptions}/>
                 
-                
+                <Stack.Screen name='LightBoxImage' component={LightBoxImage} options={screenOptions}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

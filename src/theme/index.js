@@ -17,6 +17,7 @@ export const SIZE = {
   btn3: (width * 160) / width_design,
   height_btn: (height * 50) / height_design,
   checkbox: 25,
+  boxImage: width * 0.21 + 0.4,
 
   iconInput: 16,
   iconBar: 20,

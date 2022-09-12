@@ -8,7 +8,7 @@ import Moon from './icon/moon.gif'
 import Listen from './icon/listen.gif'
 import ReactNative from './icon/reactNative.gif'
 import RocketIcons from './icon/rocketIcons.gif'
-
+import plus from "./icon/plus.png"
 export {
     IconX,
     Error,
@@ -20,4 +20,5 @@ export {
     Listen,
     ReactNative,
     RocketIcons,
+    plus,
 }
