@@ -27,6 +27,9 @@ import OrtherBottomSheet from './Screen/BottomSheet/OrtherBottomSheet';
 import {ComponentOrtherBottomSheet} from './component/BottomSheet/index';
 import LightBox from './component/Modal/LightBox';
 import LightBoxScreen from './Screen/Modals/LightBoxScreen';
+import DashedCard from './component/Card/DashedCard';
+import IndexCard from './Screen/Card/IndexCard';
+import TicketCard from './component/Card/TicketCard';
 
 import Rate from './Screen/Rating/index';
 import Custom from './Screen/Rating/Custom';
