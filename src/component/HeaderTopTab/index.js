@@ -1,5 +1,5 @@
-import HeaderHomeTab from "./HeaderHomeTab"
-import HeaderSettingTab from "./HeaderSettingTab"
+import HeaderHomeTab from "./ComponentScreen/HeaderHomeTab"
+import HeaderSettingTab from "./ComponentScreen/HeaderSettingTab"
 
 export{
     HeaderHomeTab,

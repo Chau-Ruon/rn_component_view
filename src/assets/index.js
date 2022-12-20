@@ -8,7 +8,9 @@ import Moon from './icon/moon.gif'
 import Listen from './icon/listen.gif'
 import ReactNative from './icon/reactNative.gif'
 import RocketIcons from './icon/rocketIcons.gif'
-import plus from "./icon/plus.png"
+import plus from "./icon/plus.png";
+import star from "./iconButton/star.png";
+import star_selected from "./iconButton/star_selected.png";
 export {
     IconX,
     Error,
@@ -21,4 +23,6 @@ export {
     ReactNative,
     RocketIcons,
     plus,
+    star_selected,
+    star,
 }
