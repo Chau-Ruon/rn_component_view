@@ -15,7 +15,8 @@ import FlexComponent from './Screen/Flex/FlexComponent';
 import MapView from './Screen/MapView/index';
 import ShowAlert from './Screen/Alert/index';
 
-import BottomTabScreen from './Screen/BottomTab/BottomTabScreen';
+import BottomTab from './Screen/BottomTab/component/BottomTabScreen';
+import IndexBottomTab from "./Screen/BottomTab/index";
 import TBottomTabScreen from './Screen/BottomTab/TBottomTabScreen';
 import Modals from './Screen/Modals/Index';
 import {Loading} from './Screen/Loading/Loading';
@@ -36,6 +37,8 @@ import Custom from './Screen/Rating/Custom';
 
 import HeaderTab from './component/HeaderTopTab/HeaderTab';
 import HeaderTop from './Screen/Header/index';
+import LiquidNavigation from './Screen/BottomTab/component/LiquidNavigation';
+import LiquidSwipe from './Screen/BottomTab/component/LiquidSwipe';
 
 const screenOptions = {
   headerTransparent: true,
@@ -56,91 +59,55 @@ export const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="HomeScreen"
-          component={HomeScreen}
-          options={screenOptions}
-        />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={screenOptions}/>
+
         {/* Checkbox */}
         <Stack.Screen name="Checkbox" component={IndexScreen} />
         <Stack.Screen name="TCheckbox" component={TCheckbox} />
         <Stack.Screen name="CheckboxItems" component={Checkbox} />
         <Stack.Screen name="CheckboxArray" component={CheckboxArray} />
+
+        {/* List */}
         <Stack.Screen name="InputFlatlist" component={InputFlatlistScreen} />
         <Stack.Screen name="InputFomik" component={InputFomik} />
         <Stack.Screen name="FlexComponent" component={FlexComponent} />
-        <Stack.Screen
-          name="MapView"
-          component={MapView}
-          options={optionsView('Map View')}
-        />
-        <Stack.Screen
-          name="ShowAlert"
-          component={ShowAlert}
-          options={optionsView('Show Alert')}
-        />
+
+        {/* Map */}
+        <Stack.Screen name="MapView" component={MapView} options={optionsView('Map View')}/>
+
+        {/* Alert */}
+        <Stack.Screen name="ShowAlert" component={ShowAlert} options={optionsView('Show Alert')}/>
+
         {/* HeaderTop */}
-        <Stack.Screen
-          name="HeaderTop"
-          component={HeaderTop}
-          options={optionsView('Header Top')}
-        />
-        <Stack.Screen
-          name="HeaderTab"
-          component={HeaderTab}
-          options={optionsView('HeaderTab')}
-        />
+        <Stack.Screen name="HeaderTop" component={HeaderTop} options={optionsView('Header Top')}/>
+        <Stack.Screen name="HeaderTab" component={HeaderTab} options={optionsView('HeaderTab')}/>
+
         {/* Loading */}
-        <Stack.Screen
-          name="Loading"
-          component={Loading}
-          options={optionsView('Loading')}
-        />
-        <Stack.Screen
-          name="LoadingDots"
-          component={LoadingDots}
-          options={optionsView('Loading')}
-        />
-        <Stack.Screen
-          name="OrtherLoading"
-          component={OrtherLoading}
-          options={optionsView('Orther Loading Dots')}
-        />
+        <Stack.Screen name="Loading" component={Loading} options={optionsView('Loading')}/>
+        <Stack.Screen name="LoadingDots" component={LoadingDots} options={optionsView('Loading')}/>
+        <Stack.Screen name="OrtherLoading" component={OrtherLoading} options={optionsView('Orther Loading Dots')}/>
+
         {/* Bottom Sheet */}
-        <Stack.Screen
-          name="BottomSheetHome"
-          component={BottomSheetHome}
-          options={optionsView('Bottom Sheet Home')}
-        />
+        <Stack.Screen name="BottomSheetHome" component={BottomSheetHome} options={optionsView('Bottom Sheet Home')}/>
         <Stack.Screen name="GestureHandler" component={GestureHandler} />
-        <Stack.Screen
-          name="OrtherBottomSheet"
-          component={ComponentOrtherBottomSheet}
-        />
-        <Stack.Screen
-          name="DraggableBottomView"
-          component={OrtherBottomSheet}
-        />
+        <Stack.Screen name="OrtherBottomSheet" component={ComponentOrtherBottomSheet}/>
+        <Stack.Screen name="DraggableBottomView" component={OrtherBottomSheet}/>
+
         {/* Bottom Tab */}
-        <Stack.Screen name="BottomTabScreen" component={BottomTabScreen} />
+        <Stack.Screen name="IndexBottomTab" component={IndexBottomTab} options={optionsView('BottomTab')} />
+        <Stack.Screen name="BottomTab" component={BottomTab} />
         <Stack.Screen name="TBottomTabScreen" component={TBottomTabScreen} />
+        <Stack.Screen name="LiquidNavigation" component={LiquidNavigation} options={screenOptions} />
+        <Stack.Screen name="LiquidSwipe" component={LiquidSwipe} options={screenOptions} />
+        
+        
+
         {/* Modals */}
-        <Stack.Screen
-          name="Modals"
-          component={Modals}
-          options={optionsView('Modals')}
-        />
-        <Stack.Screen
-          name="LightBoxScreen"
-          component={LightBoxScreen}
-          options={screenOptions}
-        />
+        <Stack.Screen name="Modals" component={Modals} options={optionsView('Modals')}/>
+        <Stack.Screen name="LightBoxScreen" component={LightBoxScreen} options={screenOptions}/>
+        
         {/* Rate */}
-        <Stack.Screen
-          name="Rate"
-          component={Rate}
-          options={optionsView('Rate')}
-        />
+        <Stack.Screen name="Rate" component={Rate} options={optionsView('Rate')}/>
         <Stack.Screen name="Rating" component={Custom} />
       </Stack.Navigator>
     </NavigationContainer>

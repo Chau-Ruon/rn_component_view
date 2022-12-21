@@ -28,6 +28,7 @@ export const SIZE = {
 };
 export const COLOR = {
   region:"#5b5858",
+  region1:'#D4D4D4',
   primary: "#002665",
   primary80: "rgba(0, 38, 101, 0.8)",
   primary60: "rgba(0, 38, 101, 0.6)",
@@ -100,6 +101,18 @@ export const TEXT = StyleSheet.create({
   h3: {
     fontSize: 18,
     lineHeight: 27,
+  },
+  fz22: {
+    fontSize: 22,
+    lineHeight: 24,
+  },
+  fz20: {
+    fontSize: 20,
+    lineHeight: 24,
+  },
+  fz18: {
+    fontSize: 18,
+    lineHeight: 24,
   },
   fz16: {
     fontSize: 16,
