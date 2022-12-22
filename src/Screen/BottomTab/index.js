@@ -29,6 +29,12 @@ export const listView = [
     nameNavigate: 'LiquidSwipe',
     icon: RocketIcons,
   },
+  {
+    id: 4,
+    name: 'TryLiquidSwipe',
+    nameNavigate: 'TryLiquidSwipe',
+    icon: RocketIcons,
+  },
 ];
 
 const Index = ({navigation}) => {

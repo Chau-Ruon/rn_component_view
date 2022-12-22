@@ -68,6 +68,7 @@ const Slider = ({
       }
     },
     onEnd: ({ velocityX, velocityY, x }) => {
+      console.log('velocityX: ', velocityX);
       if (activeSide.value === Side.LEFT) {
         const dest = snapPoint(x, velocityX, LEFT_SNAP_POINTS);
         console.log("🚀 ~ file: Slider.tsx:73 ~ dest", dest)

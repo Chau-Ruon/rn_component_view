@@ -87,6 +87,12 @@ export const listView = [
     nameNavigate: 'Rate',
     icon: RocketIcons,
   },
+  {
+    id: 13,
+    name: 'Svg',
+    nameNavigate: 'Svg',
+    icon: RocketIcons,
+  },
 ];
 
 export const HomeScreen = ({navigation}) => {

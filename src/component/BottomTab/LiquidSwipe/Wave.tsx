@@ -67,25 +67,25 @@ const Wave = ({
     const stepX = R.value / 2; // R/2
     // 0.5522847498 is taken from https://spencermortensen.com/articles/bezier-circle/
     const C = stepY * 0.5522847498;
-
+    
     const p1 = { x: ledge.value, y: y.value - 2 * stepY };
     const p2 = vec2(p1.x + stepX, p1.y + stepY);
     const p3 = vec2(p2.x + stepX, p2.y + stepY);
     const p4 = vec2(p3.x - stepX, p3.y + stepY);
     const p5 = vec2(p4.x - stepX, p4.y + stepY);
-
+    
     const c11 = vec2(p1.x, p1.y + C);
     const c12 = vec2(p2.x, p2.y);
-
+    
     const c21 = vec2(p2.x, p2.y);
     const c22 = vec2(p3.x, p3.y - C);
-
+    
     const c31 = vec2(p3.x, p3.y + C);
     const c32 = vec2(p4.x, p4.y);
-
+    
     const c41 = vec2(p4.x, p4.y);
     const c42 = vec2(p5.x, p5.y - C);
-
+    
     return {
       d: [
         "M 0 0",
@@ -100,14 +100,14 @@ const Wave = ({
       ].join(" "),
     };
   });
+  console.log("🚀 ~ file: Wave.tsx:66 ~ animatedProps ~ animatedProps", animatedProps)
   const maskElement = (
-    <Svg
-      style={[
+    <Svg style={[
         StyleSheet.absoluteFill,
         {
-          transform: [{ rotateY: side === Side.RIGHT ? "180deg" : "0deg" }],
-        },
-      ]}
+            transform: [{ rotateY: side === Side.RIGHT ? "180deg" : "0deg" }],
+          },
+        ]}
     >
       <AnimatedPath
         fill={Platform.OS === "android" ? children.props.slide.color : "black"}

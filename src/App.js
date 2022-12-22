@@ -17,7 +17,7 @@ import ShowAlert from './Screen/Alert/index';
 
 import BottomTab from './Screen/BottomTab/component/BottomTabScreen';
 import IndexBottomTab from "./Screen/BottomTab/index";
-import TBottomTabScreen from './Screen/BottomTab/TBottomTabScreen';
+import TBottomTabScreen from './Screen/BottomTab/component/TBottomTabScreen';
 import Modals from './Screen/Modals/Index';
 import {Loading} from './Screen/Loading/Loading';
 import {LoadingDots, OrtherLoading, Thu} from './component/Loading/index';
@@ -39,6 +39,11 @@ import HeaderTab from './component/HeaderTopTab/HeaderTab';
 import HeaderTop from './Screen/Header/index';
 import LiquidNavigation from './Screen/BottomTab/component/LiquidNavigation';
 import LiquidSwipe from './Screen/BottomTab/component/LiquidSwipe';
+import TryLiquidSwipe from './Screen/BottomTab/component/TryLiquidSwipe';
+
+import Svg from "./Screen/SvgScreen/Index";
+import Sinusoidal from './Screen/SvgScreen/component/Sinusoidal';
+import MakerMap from './Screen/SvgScreen/component/MakerMap';
 
 const screenOptions = {
   headerTransparent: true,
@@ -99,6 +104,7 @@ export const App = () => {
         <Stack.Screen name="TBottomTabScreen" component={TBottomTabScreen} />
         <Stack.Screen name="LiquidNavigation" component={LiquidNavigation} options={screenOptions} />
         <Stack.Screen name="LiquidSwipe" component={LiquidSwipe} options={screenOptions} />
+        <Stack.Screen name="TryLiquidSwipe" component={TryLiquidSwipe} options={screenOptions} />
         
         
 
@@ -109,6 +115,13 @@ export const App = () => {
         {/* Rate */}
         <Stack.Screen name="Rate" component={Rate} options={optionsView('Rate')}/>
         <Stack.Screen name="Rating" component={Custom} />
+
+        {/* SVG */}
+        <Stack.Screen name="Svg" component={Svg} options={optionsView('SVG')}/>
+        <Stack.Screen name="Sinusoidal" component={Sinusoidal} options={optionsView('Hình Sin')}/>
+        <Stack.Screen name="MakerMap" component={MakerMap} options={optionsView('Hình Vị trí')}/>
+        
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
