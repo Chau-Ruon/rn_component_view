@@ -93,6 +93,12 @@ export const listView = [
     nameNavigate: 'Svg',
     icon: RocketIcons,
   },
+  {
+    id: 14,
+    name: 'HeadBubbleChat',
+    nameNavigate: 'HeadBubbleChat',
+    icon: RocketIcons,
+  },
 ];
 
 export const HomeScreen = ({navigation}) => {

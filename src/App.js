@@ -45,6 +45,9 @@ import Svg from "./Screen/SvgScreen/Index";
 import Sinusoidal from './Screen/SvgScreen/component/Sinusoidal';
 import MakerMap from './Screen/SvgScreen/component/MakerMap';
 
+import HeadBubbleChat from "./Screen/ChatHeadBubble/index";
+import { BubbleChat } from './component/ChatHeadBubble';
+
 const screenOptions = {
   headerTransparent: true,
   headerShown: false,
@@ -121,6 +124,9 @@ export const App = () => {
         <Stack.Screen name="Sinusoidal" component={Sinusoidal} options={optionsView('Hình Sin')}/>
         <Stack.Screen name="MakerMap" component={MakerMap} options={optionsView('Hình Vị trí')}/>
         
+        {/* Head Bubble Chat */}
+        <Stack.Screen name="HeadBubbleChat" component={HeadBubbleChat} options={optionsView('Bong Bong Chat')}/>
+        <Stack.Screen name="BubbleChat" component={BubbleChat} options={optionsView('BubbleChat')}/>
         
       </Stack.Navigator>
     </NavigationContainer>
