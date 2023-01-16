@@ -48,6 +48,9 @@ import MakerMap from './Screen/SvgScreen/component/MakerMap';
 import HeadBubbleChat from "./Screen/ChatHeadBubble/index";
 import { BubbleChat } from './component/ChatHeadBubble';
 
+import ScrollTopAnimation from './Screen/ListAnimation/ScrollTopAnimation';
+import IndexListAnim from './Screen/ListAnimation';
+
 const screenOptions = {
   headerTransparent: true,
   headerShown: false,
@@ -127,7 +130,12 @@ export const App = () => {
         {/* Head Bubble Chat */}
         <Stack.Screen name="HeadBubbleChat" component={HeadBubbleChat} options={optionsView('Bong Bong Chat')}/>
         <Stack.Screen name="BubbleChat" component={BubbleChat} options={optionsView('BubbleChat')}/>
-        
+
+        {/* List Animation */}
+        <Stack.Screen name="ListAnimation" component={IndexListAnim} options={optionsView('List Animation')}/>
+        <Stack.Screen name="ScrollTopAnimation" component={ScrollTopAnimation} options={optionsView('Scroll Top Animation')}/>
+
+
       </Stack.Navigator>
     </NavigationContainer>
   );

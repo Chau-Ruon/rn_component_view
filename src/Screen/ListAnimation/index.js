@@ -1,118 +1,22 @@
-import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  StyleSheet,
-  FlatList,
-  Dimensions,
-  Image,
-} from 'react-native';
-import {ReactNative, RocketIcons} from './../assets/index';
+import React, {useState, useEffect, useRef} from 'react';
+import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import {ReactNative, RocketIcons} from '../../assets/index';
+import {SIZE, COLOR, TEXT} from '../../theme';
 import FastImage from 'react-native-fast-image';
-
-const {width, height} = Dimensions.get('window');
 
 export const listView = [
   {
-    id: 1,
-    name: 'Checkbox',
-    nameNavigate: 'Checkbox',
-    icon: RocketIcons,
-  },
-  {
-    id: 2,
-    name: 'InputFlatlist',
-    nameNavigate: 'InputFlatlist',
-    icon: RocketIcons,
-  },
-  {
-    id: 3,
-    name: 'InputFomik',
-    nameNavigate: 'InputFomik',
-    icon: RocketIcons,
-  },
-  {
-    id: 4,
-    name: 'FlexComponent',
-    nameNavigate: 'FlexComponent',
-    icon: RocketIcons,
-  },
-  {
-    id: 5,
-    name: 'BottomSheet',
-    nameNavigate: 'BottomSheetHome',
-    icon: RocketIcons,
-  },
-  {
-    id: 6,
-    name: 'Map View',
-    nameNavigate: 'MapView',
-    icon: RocketIcons,
-  },
-  {
-    id: 7,
-    name: 'Show Alert',
-    nameNavigate: 'ShowAlert',
-    icon: RocketIcons,
-  },
-  {
-    id: 8,
-    name: 'Header Top',
-    nameNavigate: 'HeaderTop',
-    icon: RocketIcons,
-  },
-  {
-    id: 9,
-    name: 'Loading',
-    nameNavigate: 'Loading',
-    icon: RocketIcons,
-  },
-  {
-    id: 10,
-    name: 'BottomTab',
-    nameNavigate: 'IndexBottomTab',
-    icon: RocketIcons,
-  },
-  {
-    id: 11,
-    name: 'Modals',
-    nameNavigate: 'Modals',
-    icon: RocketIcons,
-  },
-  {
-    id: 12,
-    name: 'Rate',
-    nameNavigate: 'Rate',
-    icon: RocketIcons,
-  },
-  {
-    id: 13,
-    name: 'Svg',
-    nameNavigate: 'Svg',
-    icon: RocketIcons,
-  },
-  {
-    id: 14,
-    name: 'HeadBubbleChat',
-    nameNavigate: 'HeadBubbleChat',
-    icon: RocketIcons,
-  },
-  {
-    id: 15,
-    name: 'List Animation',
-    nameNavigate: 'ListAnimation',
+    id: 0,
+    name: 'Scroll Top Animation',
+    nameNavigate: 'ScrollTopAnimation',
     icon: RocketIcons,
   },
 ];
 
-export const HomeScreen = ({navigation}) => {
-  
+const Index = ({navigation}) => {
   const onpressHandle = nameNavigate => {
     navigation.navigate(nameNavigate);
   };
-
   return (
     <View style={styles.container}>
       <View style={styles.logoReactNative}>
@@ -139,6 +43,8 @@ export const HomeScreen = ({navigation}) => {
   );
 };
 
+export default Index;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -150,7 +56,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#071f13',
   },
   containerItems: {
-    width: width / 2 - 30,
+    width: SIZE.width / 2 - 30,
     height: 100,
     marginBottom: 10,
     marginHorizontal: 10,
@@ -190,7 +96,7 @@ const styles = StyleSheet.create({
   },
   imageLogo: {
     height: 210,
-    width: width,
+    width: SIZE.width,
   },
   text: {
     marginHorizontal: 10,
