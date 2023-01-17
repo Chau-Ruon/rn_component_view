@@ -1,100 +1,87 @@
+import React,{useState, useEffect, useMemo} from 'react';
 import {
   StyleSheet,
   Text,
-  FlatList,
   View,
-} from 'react-native'
-import React,{useState, useEffect, useMemo} from 'react';
-import { SIZE,COLOR,TEXT,SHADOWS } from '../../theme';
+  TouchableOpacity,
+} from 'react-native';
 import Animated, {
-  event,
-  SlideInDown,
-  SlideInUp,
   useSharedValue,
   useAnimatedStyle,
-  interpolate,
-  useDerivedValue,
-  useAnimatedGestureHandler,
-  withTiming,
-  Easing,
-  useAnimatedProps,
   useAnimatedScrollHandler,
   withSpring,
-  Extrapolate,
+  withTiming,
 } from 'react-native-reanimated';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import ItemScrollTopAnimation from '../../component/ListAnim/ItemScrollTopAnimation';
+import { SIZE,COLOR,TEXT,SHADOWS } from '../../theme';
 
-let data = [];
-for (let index = 0; index < 50; index++) {
-  const item = {
-    id: index,
-    name: `Item index ${index}!`
-  }
-  data.push(item);
-}
+const ScrollExample = () => {
+  const data = new Array(40).fill().map((ele,index) => ({id: index, name: `Item name ${index}`}));
 
-export const NOTIFICATION_HEIGHT = 80;
-
-const ScrollTopAnimation = () => {
-
-  const footerVisibility = useSharedValue(1);
-  const scrollY = useSharedValue(0);
+  const translationY = useSharedValue(0);
+  const isScrolling = useSharedValue(false);
   const listVisibility = useSharedValue(1);
 
-  const footerHeight = useDerivedValue(() =>
-    interpolate(footerVisibility.value, [0, 1], [0, 85])
-  );
-
-  const animatedFooterStyle = useAnimatedStyle(() => ({
-    marginTop: interpolate(footerVisibility.value, [0, 1], [-85, 0]),
-    opacity: footerVisibility.value,
-  }));
-
-  const handler = useAnimatedScrollHandler({
-    onScroll:(event) => {
-      const y = event.contentOffset.y;
-      scrollY.value = y;
-
-      if (y < 10) {
-        footerVisibility.value = withTiming(1);
-      }else{
-        footerVisibility.value = withTiming(0);
-      }
+  const scrollHandler = useAnimatedScrollHandler({
+    onScroll: (event) => {
+      translationY.value = event.contentOffset.y;
+      listVisibility.value = withTiming(0,{damping:10});
     },
     onBeginDrag: (event) => {
-      if (listVisibility.value < 1) {
-        listVisibility.value = withSpring(1);
-      }
+      isScrolling.value = true;
     },
     onEndDrag: (event) => {
-      if (event.contentOffset.y < 0) {
-        listVisibility.value = withTiming(0);
+      console.log('event: ', event);
+      isScrolling.value = false;
+      if (event.contentOffset.y > 0) {
+        
+        listVisibility.value = withSpring(1,{damping:10});
       }
     },
   });
 
+  const stylez = useAnimatedStyle(() => {
+    return {
+      opacity: listVisibility.value,
+      // transform: [
+      //   {
+      //     translateY: translationY.value,
+      //   },
+      // ],
+    };
+  });
+
+  console.log('listVisibility: ', listVisibility);
+
+
   return (
-    <GestureHandlerRootView>
-      <Animated.FlatList
-        keyExtractor={item => item.id}
-        data={data}
-        renderItem={({ item, index }) => ItemScrollTopAnimation(
-          item,
-          index,
-          listVisibility,
-          scrollY,
-          footerHeight)
-        }
-        
-        onScroll={handler}
-        scrollEventThrottle={12}
-      />
-    </GestureHandlerRootView>
-  )
+    <View style={{}}>
+      <Animated.ScrollView
+        // style={stylez}
+        onScroll={scrollHandler}
+        scrollEventThrottle={1}
+        onScrollAnimationEnd
+        >
+        {data.map((ele, index) => {
+          return (
+            <Animated.View style={[stylez,{
+              backgroundColor:"#b80000",
+              height: 61,
+              width:SIZE.width - 15,
+              borderRadius:10,
+              alignItems:"center",
+              justifyContent:"center",
+              marginVertical:1,
+            }]}>
+              <Text style={{fontSize:25,fontWeight:"bold"}}>{ele.name}</Text>
+            </Animated.View>
+          );
+        })}
+      </Animated.ScrollView>
+    </View>
+  );
 }
 
-export default ScrollTopAnimation
+export default ScrollExample;
 
 const styles = StyleSheet.create({
   container:{

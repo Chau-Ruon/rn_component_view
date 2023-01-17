@@ -11,6 +11,30 @@ export const listView = [
     nameNavigate: 'ScrollTopAnimation',
     icon: RocketIcons,
   },
+  {
+    id: 1,
+    name: 'TS Flatlist Anim',
+    nameNavigate: 'FlatlistAnimation',
+    icon: RocketIcons,
+  },
+  {
+    id: 2,
+    name: 'TS ScrollView Anim',
+    nameNavigate: 'ScrollViewAnimation',
+    icon: RocketIcons,
+  },
+  {
+    id: 3,
+    name: 'TS Switch Anim',
+    nameNavigate: 'SwitchAnimation',
+    icon: RocketIcons,
+  },
+  {
+    id: 4,
+    name: 'TS Pinch Gesture Anim',
+    nameNavigate: 'PinchGestureAnimation',
+    icon: RocketIcons,
+  },
 ];
 
 const Index = ({navigation}) => {

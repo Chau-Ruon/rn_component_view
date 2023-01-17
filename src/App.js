@@ -50,6 +50,13 @@ import { BubbleChat } from './component/ChatHeadBubble';
 
 import ScrollTopAnimation from './Screen/ListAnimation/ScrollTopAnimation';
 import IndexListAnim from './Screen/ListAnimation';
+import FlatlistAnimation from './Screen/ListAnimation/FlatlistAnimation';
+import ScrollViewAnimation from './Screen/ListAnimation/ScrollViewAnimation';
+import SwitchAnim from './Screen/ListAnimation/SwitchAnim';
+import PinchGestureAnimation from './Screen/ListAnimation/PinchGestureAnimation';
+
+
+
 
 const screenOptions = {
   headerTransparent: true,
@@ -134,7 +141,10 @@ export const App = () => {
         {/* List Animation */}
         <Stack.Screen name="ListAnimation" component={IndexListAnim} options={optionsView('List Animation')}/>
         <Stack.Screen name="ScrollTopAnimation" component={ScrollTopAnimation} options={optionsView('Scroll Top Animation')}/>
-
+        <Stack.Screen name="FlatlistAnimation" component={FlatlistAnimation} options={optionsView('Flatlist Animation')}/>
+        <Stack.Screen name="ScrollViewAnimation" component={ScrollViewAnimation} options={optionsView('ScrollView Animation')}/>
+        <Stack.Screen name="SwitchAnimation" component={SwitchAnim} options={optionsView('Switch Animation')}/>
+        <Stack.Screen name="PinchGestureAnimation" component={PinchGestureAnimation} options={optionsView('Pinch Gesture Animation')}/>
 
       </Stack.Navigator>
     </NavigationContainer>
