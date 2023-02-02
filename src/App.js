@@ -54,6 +54,8 @@ import FlatlistAnimation from './Screen/ListAnimation/FlatlistAnimation';
 import ScrollViewAnimation from './Screen/ListAnimation/ScrollViewAnimation';
 import SwitchAnim from './Screen/ListAnimation/SwitchAnim';
 import PinchGestureAnimation from './Screen/ListAnimation/PinchGestureAnimation';
+import IndexBanner from './Screen/Banner';
+import BannerCarousel from './component/Banner/BannerCarousel';
 
 
 
@@ -146,6 +148,10 @@ export const App = () => {
         <Stack.Screen name="SwitchAnimation" component={SwitchAnim} options={optionsView('Switch Animation')}/>
         <Stack.Screen name="PinchGestureAnimation" component={PinchGestureAnimation} options={optionsView('Pinch Gesture Animation')}/>
 
+
+        {/* Banner Header */}
+        <Stack.Screen name="IndexBanner" component={IndexBanner} options={optionsView('Banner')}/>
+        <Stack.Screen name="BannerCarousel" component={BannerCarousel} options={screenOptions}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
