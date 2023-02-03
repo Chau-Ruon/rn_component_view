@@ -55,7 +55,7 @@ import ScrollViewAnimation from './Screen/ListAnimation/ScrollViewAnimation';
 import SwitchAnim from './Screen/ListAnimation/SwitchAnim';
 import PinchGestureAnimation from './Screen/ListAnimation/PinchGestureAnimation';
 import IndexBanner from './Screen/Banner';
-import BannerCarousel from './component/Banner/BannerCarousel';
+import BannerCarousel from './Screen/Banner/BannerCarousel';
 
 
 
