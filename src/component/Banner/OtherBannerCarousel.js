@@ -15,7 +15,7 @@ import Swiper from 'react-native-swiper'
 import { food1, food2, food3, food4, food5 } from '../../assets/indexImage';
 import { COLOR, SIZE } from '../../theme';
 
-const BannerCarousel = () => {
+const OtherBannerCarousel = () => {
   const arrImage = [
     food1,
     food2,
@@ -28,13 +28,6 @@ const BannerCarousel = () => {
   let currentOffset = 0;
   const [imageIndex,setImageIndex] = useState(0);
   const [changedViewableItems,setChangedViewableItems] = useState([])
-  // console.log("🚀 ~ file: BannerCarousel.js:30 ~ BannerCarousel ~ imageIndex", imageIndex)
-  
-  let adfjhadk = 0;
-  useEffect(()=>{
-    // currentIndexImage();
-    // changeIndex();
-  },[])
   
   const handles = (e) => {
     if (!e) return;
@@ -42,14 +35,14 @@ const BannerCarousel = () => {
     if (nativeEvent && nativeEvent.contentOffset) {
       currentOffset = nativeEvent.contentOffset.x;
       if (currentOffset > 0) {
-        // console.log('Math.floor((currentOffset + SIZE.height / 2) / SIZE.width): ', Math.floor((currentOffset + SIZE.height / 2) / SIZE.width));
-        setImageIndex(Math.floor((currentOffset + SIZE.height / 2) / SIZE.width));
+        const current = Math.floor((currentOffset + SIZE.width / 2) / SIZE.width );
+        setImageIndex(current)
       }
     }
   }
   
   
-  const [Viewable, SetViewable] = React.useState([]);
+  // const [Viewable, SetViewable] = React.useState([]);
   
   const onViewRef = React.useRef(({viewableItems,changed}) => {
     let Check = [];
@@ -57,23 +50,19 @@ const BannerCarousel = () => {
       Check.push(viewableItems[i].item);
     }
     // console.log('viewableItems: ', viewableItems);
-    setChangedViewableItems(changed);
-    SetViewable(Check);
+    setChangedViewableItems(changed)
+    console.log('changed: ', changed);
+    console.log('Check: ', Check);
   });
   const viewConfigRef = React.useRef({ viewAreaCoveragePercentThreshold: 80 });
   
   const changeIndex =(index= 0) => {
-    // console.log('imageIndex: ', {...imageIndex});
     stepCarousel?.current?.scrollToIndex({ index: index, animted: true,viewOffset: imageIndex, viewPosition: currentOffset});
-    // adfjhadk = {...index};
-    // setImageIndex(index);
   }
-  
-  console.log('changedViewableItems: ', changedViewableItems);
-  // console.log('adfjhadk: ', adfjhadk);
+
   const styles = styleWithProps( );
   return (
-    <View style={{height:SIZE.height/2.9,backgroundColor:"#0ec368"}}>
+    <View style={{height:SIZE.height/2.9,}}>
       <FlatList 
         data={arrImage}
         horizontal
@@ -99,17 +88,15 @@ const BannerCarousel = () => {
       <FlatList 
         data={arrImage}
         horizontal
+        ref={stepImage}
         keyExtractor={index => index.toString()}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         renderItem={({item,index}) => {
-          // console.log('index:::::::::::', index);
-          // console.log();
-          // console.log(`adfjhadk::::::::::::`, adfjhadk);
           return(
             <View style={{marginTop:5,height: 60,}}>
-              <TouchableOpacity ref={stepImage} onPress={() => changeIndex(index)}>
-                <Image style={  changedViewableItems[0]?.index === index  ? [styles.unActiveBtnItemImg,{borderColor:COLOR.error} ] : styles.unActiveBtnItemImg} source={item}/>
+              <TouchableOpacity onPress={() => changeIndex(index)}>
+                <Image style={  (imageIndex ||0) === index  ? [styles.unActiveBtnItemImg,{borderColor:COLOR.error} ] : styles.unActiveBtnItemImg} source={item}/>
               </TouchableOpacity>
             </View>
           );
@@ -119,7 +106,7 @@ const BannerCarousel = () => {
   )
 }
 
-export default BannerCarousel
+export default OtherBannerCarousel
 
 
 const styleWithProps = () => {
