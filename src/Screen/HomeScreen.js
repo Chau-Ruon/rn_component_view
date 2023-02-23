@@ -111,6 +111,12 @@ export const listView = [
     nameNavigate: 'IndexBanner',
     icon: RocketIcons,
   },
+  {
+    id: 17,
+    name: 'Swipeable',
+    nameNavigate: 'Swipeable',
+    icon: RocketIcons,
+  },
 ];
 
 export const HomeScreen = ({navigation}) => {

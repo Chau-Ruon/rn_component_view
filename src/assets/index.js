@@ -11,6 +11,13 @@ import RocketIcons from './icon/rocketIcons.gif'
 import plus from "./icon/plus.png";
 import star from "./iconButton/star.png";
 import star_selected from "./iconButton/star_selected.png";
+
+import iconDeleteTrash from "./icon/iconDeleteTrash.png";
+import iconEdit from "./icon/iconEdit.png";
+import iconFilter from "./icon/iconFilter.png";
+import iconHeart from "./icon/iconHeart.png";
+import iconHeartRed from "./icon/iconHeartRed.png";
+
 export {
     IconX,
     Error,
@@ -25,4 +32,9 @@ export {
     plus,
     star_selected,
     star,
+    iconDeleteTrash,
+    iconEdit,
+    iconFilter,
+    iconHeart,
+    iconHeartRed,
 }

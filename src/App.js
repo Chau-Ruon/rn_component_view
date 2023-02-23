@@ -57,7 +57,8 @@ import PinchGestureAnimation from './Screen/ListAnimation/PinchGestureAnimation'
 import IndexBanner from './Screen/Banner';
 import BannerCarousel from './Screen/Banner/BannerCarousel';
 
-
+import Swipeable from "./Screen/Swipeable/index"
+import SwipeableList from './component/Swipeable/SwipeableList';
 
 
 const screenOptions = {
@@ -152,6 +153,11 @@ export const App = () => {
         {/* Banner Header */}
         <Stack.Screen name="IndexBanner" component={IndexBanner} options={optionsView('Banner')}/>
         <Stack.Screen name="BannerCarousel" component={BannerCarousel} options={screenOptions}/>
+
+        {/* Swipeable */}
+        <Stack.Screen name="Swipeable" component={Swipeable} options={optionsView('Swipeable')}/>
+        <Stack.Screen name="SwipeableList" component={SwipeableList} options={optionsView('SwipeableList')}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );
