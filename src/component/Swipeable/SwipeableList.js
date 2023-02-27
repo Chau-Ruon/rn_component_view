@@ -58,9 +58,6 @@ const SwipeableList = () => {
       <FlatList
         data={data}
         keyExtractor={(item) => item.id.toString()}
-        // renderItem={({item,index}) =>{
-        //   return <Item item={item} index={index} />
-        // } }
         renderItem={renderItem}
       />
     </View>
