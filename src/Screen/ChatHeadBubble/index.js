@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     width:50,
   },
   title:{
-    color:"Black",
+    color:"black",
     fontSize:17,
     fontWeight:"bold",
     textAlign:"auto"

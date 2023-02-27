@@ -57,7 +57,7 @@ import PinchGestureAnimation from './Screen/ListAnimation/PinchGestureAnimation'
 import IndexBanner from './Screen/Banner';
 import BannerCarousel from './Screen/Banner/BannerCarousel';
 
-import Swipeable from "./Screen/Swipeable/index"
+import Swipeable from "./Screen/Swipeable/Swipeable"
 import SwipeableList from './component/Swipeable/SwipeableList';
 
 

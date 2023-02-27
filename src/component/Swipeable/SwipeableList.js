@@ -12,8 +12,9 @@ import {food1,food2,
   food3,
   food4,
   food5,} from "../../assets/indexImage"
+import { SIZE } from '../../theme'
 
-export const Data = [
+export const data = [
   {
     id:1,
     title:"sdfjkash",
@@ -39,77 +40,28 @@ export const Data = [
     title:"sdfjkash",
     image: food5,
   },
-  {
-    id:6,
-    title:"sdfjkash",
-    image: food5,
-  },
-  {
-    id:7,
-    title:"sdfjkash",
-    image: food5,
-  },
-  {
-    id:8,
-    title:"sdfjkash",
-    image: food5,
-  },
-  {
-    id:9,
-    title:"sdfjkash",
-    image: food5,
-  },
-  {
-    id:10,
-    title:"sdfjkash",
-    image: food5,
-  }, {
-    id:11,
-    title:"sdfjkash",
-    image: food5,
-  },
-  {
-    id:12,
-    title:"sdfjkash",
-    image: food5,
-  },
-  {
-    id:13,
-    title:"sdfjkash",
-    image: food5,
-  },
-  {
-    id:14,
-    title:"sdfjkash",
-    image: food5,
-  },
-  {
-    id:15,
-    title:"sdfjkash",
-    image: food5,
-  },
-  {
-    id:16,
-    title:"sdfjkash",
-    image: food5,
-  },
-  {
-    id:17,
-    title:"sdfjkash",
-    image: food5,
-  },
 ]
+const handleDelete = id => {
+  console.log('id: ', id);
+  const newData = data.filter(item => item.id !== id);
+  setData(newData);
+};
+
+const renderItem = ({ item,index }) => (
+  <Item itemlist={item}index={index} onDelete={() => handleDelete(item.id)} />
+);
+
 
 const SwipeableList = () => {
   return (
-    <View style={{flex:1}}>
+    <View style={{width:SIZE.width}}>
       <FlatList
-        data={Data}
+        data={data}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({item,index}) =>{
-          return <Item item={item} index={index} />
-        } 
-        }
+        // renderItem={({item,index}) =>{
+        //   return <Item item={item} index={index} />
+        // } }
+        renderItem={renderItem}
       />
     </View>
   )
