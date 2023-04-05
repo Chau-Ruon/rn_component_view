@@ -1,6 +1,6 @@
 import Checkbox from "./CheckboxItems";
-import CheckboxArray from "../Checkbox/CheckboxArray";
-import {TCheckbox} from "../Checkbox/TCheckbox";
+import CheckboxArray from "./CheckboxArray";
+import {TCheckbox} from "./TCheckbox";
 export {
     Checkbox,
     CheckboxArray,
