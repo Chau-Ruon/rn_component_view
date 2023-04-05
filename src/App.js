@@ -15,9 +15,9 @@ import FlexComponent from './Screen/Flex/FlexComponent';
 import MapView from './Screen/MapView/index';
 import ShowAlert from './Screen/Alert/index';
 
-import BottomTab from './Screen/BottomTab/component/BottomTabScreen';
+import BottomTab from './Screen/BottomTab/Component/BottomTabScreen';
 import IndexBottomTab from "./Screen/BottomTab/index";
-import TBottomTabScreen from './Screen/BottomTab/component/TBottomTabScreen';
+import TBottomTabScreen from './Screen/BottomTab/Component/TBottomTabScreen';
 import Modals from './Screen/Modals/Index';
 import {Loading} from './Screen/Loading/Loading';
 import {LoadingDots, OrtherLoading, Thu} from './component/Loading/index';
@@ -37,13 +37,13 @@ import Custom from './Screen/Rating/Custom';
 
 import HeaderTab from './component/HeaderTopTab/HeaderTab';
 import HeaderTop from './Screen/Header/index';
-import LiquidNavigation from './Screen/BottomTab/component/LiquidNavigation';
-import LiquidSwipe from './Screen/BottomTab/component/LiquidSwipe';
-import TryLiquidSwipe from './Screen/BottomTab/component/TryLiquidSwipe';
+import LiquidNavigation from './Screen/BottomTab/Component/LiquidNavigation';
+import LiquidSwipe from './Screen/BottomTab/Component/LiquidSwipe';
+import TryLiquidSwipe from './Screen/BottomTab/Component/TryLiquidSwipe';
 
 import Svg from "./Screen/SvgScreen/Index";
-import Sinusoidal from './Screen/SvgScreen/component/Sinusoidal';
-import MakerMap from './Screen/SvgScreen/component/MakerMap';
+import Sinusoidal from './Screen/SvgScreen/Component/Sinusoidal';
+import MakerMap from './Screen/SvgScreen/Component/MakerMap';
 
 import HeadBubbleChat from "./Screen/ChatHeadBubble/index";
 import { BubbleChat } from './component/ChatHeadBubble';
