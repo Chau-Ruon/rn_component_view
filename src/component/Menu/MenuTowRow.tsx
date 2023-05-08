@@ -107,27 +107,12 @@ const carouselItems= [
 ];
 
 export const MenuTowRow = () => {
-  const [menuCate,setMenuCate] = useState([]);
-  useEffect(()=>{
-    callApiMenu();
-  },[])
-  const callApiMenu = async () => {
-    // const category = await axios.get(`${configs.URL_API}categories` );
-    
-    // console.log('category: ', category);
-    // setMenuCate(category.data);
-  }
   
   const _menuList = ({ item, index }:{item:any,index:number}) => {
     return (
       <TouchableOpacity style={{
         flexDirection:"row",
         // backgroundColor:"#fff",
-      
-        // borderWidth:0.1,
-        // borderRadius:9,
-        // marginRight:2,
-
       }} activeOpacity={0.65}  key={`${index}-cart`}>
         <View style={{
           margin:4,
@@ -148,18 +133,6 @@ export const MenuTowRow = () => {
             width:"100%",
             padding:5,
             borderRadius:9,
-            
-            // shadowColor: "#000",
-            // shadowOffset: {
-            //   width: 0,
-            //   height: 1,
-            // },
-            // shadowOpacity: 0.22,
-            // shadowRadius: 2.22,
-
-            // elevation: 3,
-
-
             backgroundColor: COLOR.white,
           }}>
             <Image style={{
