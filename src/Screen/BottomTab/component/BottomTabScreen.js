@@ -10,7 +10,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import { Home,Search,Notify,Setting } from '../../../component/BottomTab';
+import { Home,Search,Notify,Setting } from '../../../Component/BottomTab';
 
 const Tab = createBottomTabNavigator();
 

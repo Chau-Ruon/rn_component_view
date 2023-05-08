@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
-import Slider from "../../../component/BottomTab/LiquidSwipe/Slider";
-import Slide from "../../../component/BottomTab/LiquidSwipe/Slide";
+import Slider from "../../../Component/BottomTab/LiquidSwipe/Slider";
+import Slide from '../../../Component/BottomTab/TryLiquidSwipe/Slide';
+
+
 import { food1,food2,food3,food4,food5 } from '../../../assets/indexImage';
+import { Text } from "react-native-paper";
 
 const slides = [
   {
@@ -49,6 +52,7 @@ const LiquidSwipe = () => {
   const prev = slides[index - 1];
   const next = slides[index + 1];
   return (
+    // <Text>Dang lỗi</Text>
     <Slider
       key={index}
       index={index}

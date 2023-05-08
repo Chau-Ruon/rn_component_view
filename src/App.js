@@ -6,7 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 import {HomeScreen} from './Screen/HomeScreen';
-import {TCheckbox, Checkbox, CheckboxArray} from './component/Checkbox/index';
+import {TCheckbox, Checkbox, CheckboxArray} from './Component/Checkbox/index';
 import {IndexScreen} from './Screen/Checkbox/IndexScreen';
 import InputFlatlistScreen from './Screen/InputFlatlistScreen/InputFlatlistScreen';
 import InputFomik from './Screen/InputFlatlistScreen/InputFomik';
@@ -15,27 +15,27 @@ import FlexComponent from './Screen/Flex/FlexComponent';
 import MapView from './Screen/MapView/index';
 import ShowAlert from './Screen/Alert/index';
 
-import BottomTab from './Screen/BottomTab/Component/BottomTabScreen';
+import BottomTabScreen from './Screen/BottomTab/Component/BottomTabScreen';
 import IndexBottomTab from "./Screen/BottomTab/index";
 import TBottomTabScreen from './Screen/BottomTab/Component/TBottomTabScreen';
 import Modals from './Screen/Modals/Index';
 import {Loading} from './Screen/Loading/Loading';
-import {LoadingDots, OrtherLoading, Thu} from './component/Loading/index';
+import {LoadingDots, OrtherLoading, Thu} from './Component/Loading/index';
 
 import {BottomSheetHome} from './Screen/BottomSheet/BottomSheetHome';
 import GestureHandler from './Screen/BottomSheet/GestureHandler';
 import OrtherBottomSheet from './Screen/BottomSheet/OrtherBottomSheet';
-import {ComponentOrtherBottomSheet} from './component/BottomSheet/index';
-import LightBox from './component/Modal/LightBox';
+import {ComponentOrtherBottomSheet} from './Component/BottomSheet/index';
+import LightBox from './Component/Modal/LightBox';
 import LightBoxScreen from './Screen/Modals/LightBoxScreen';
-import DashedCard from './component/Card/DashedCard';
+import DashedCard from './Component/Card/DashedCard';
 import IndexCard from './Screen/Card/IndexCard';
-import TicketCard from './component/Card/TicketCard';
+import TicketCard from './Component/Card/TicketCard';
 
 import Rate from './Screen/Rating/index';
 import Custom from './Screen/Rating/Custom';
 
-import HeaderTab from './component/HeaderTopTab/HeaderTab';
+import HeaderTab from './Component/HeaderTopTab/HeaderTab';
 import HeaderTop from './Screen/Header/index';
 import LiquidNavigation from './Screen/BottomTab/Component/LiquidNavigation';
 import LiquidSwipe from './Screen/BottomTab/Component/LiquidSwipe';
@@ -46,7 +46,7 @@ import Sinusoidal from './Screen/SvgScreen/Component/Sinusoidal';
 import MakerMap from './Screen/SvgScreen/Component/MakerMap';
 
 import HeadBubbleChat from "./Screen/ChatHeadBubble/index";
-import { BubbleChat } from './component/ChatHeadBubble';
+import { BubbleChat } from './Component/ChatHeadBubble';
 
 import ScrollTopAnimation from './Screen/ListAnimation/ScrollTopAnimation';
 import IndexListAnim from './Screen/ListAnimation';
@@ -58,7 +58,9 @@ import IndexBanner from './Screen/Banner';
 import BannerCarousel from './Screen/Banner/BannerCarousel';
 
 import Swipeable from "./Screen/Swipeable/Swipeable"
-import SwipeableList from './component/Swipeable/SwipeableList';
+import SwipeableList from './Component/Swipeable/SwipeableList';
+import IndexMenu from './Screen/Menu/IndexMenu';
+import { MenuTowRow } from './Component/Menu/MenuTowRow';
 
 
 const screenOptions = {
@@ -116,7 +118,7 @@ export const App = () => {
 
         {/* Bottom Tab */}
         <Stack.Screen name="IndexBottomTab" component={IndexBottomTab} options={optionsView('BottomTab')} />
-        <Stack.Screen name="BottomTab" component={BottomTab} />
+        <Stack.Screen name="BottomTab" component={BottomTabScreen} />
         <Stack.Screen name="TBottomTabScreen" component={TBottomTabScreen} />
         <Stack.Screen name="LiquidNavigation" component={LiquidNavigation} options={screenOptions} />
         <Stack.Screen name="LiquidSwipe" component={LiquidSwipe} options={screenOptions} />
@@ -157,6 +159,11 @@ export const App = () => {
         {/* Swipeable */}
         <Stack.Screen name="Swipeable" component={Swipeable} options={optionsView('Swipeable')}/>
         <Stack.Screen name="SwipeableList" component={SwipeableList} options={optionsView('SwipeableList')}/>
+
+        {/* Menu */}
+        
+        <Stack.Screen name="IndexMenu" component={IndexMenu} options={optionsView('IndexMenu')}/>
+        <Stack.Screen name="MenuTowRow" component={MenuTowRow} options={optionsView('MenuTowRow')}/>
 
       </Stack.Navigator>
     </NavigationContainer>
