@@ -15,9 +15,10 @@ import FlexComponent from './Screen/Flex/FlexComponent';
 import MapView from './Screen/MapView/index';
 import ShowAlert from './Screen/Alert/index';
 
-import BottomTab from './Screen/BottomTab/Component/BottomTabScreen';
+// import BottomTabScreen from './Screen/BottomTab/Component/BottomTabScreen';
+import BottomTabScreen from "./Screen/BottomTab/component/BottomTabScreen";
 import IndexBottomTab from "./Screen/BottomTab/index";
-import TBottomTabScreen from './Screen/BottomTab/Component/TBottomTabScreen';
+import TBottomTabScreen from './Screen/BottomTab/component/TBottomTabScreen';
 import Modals from './Screen/Modals/Index';
 import {Loading} from './Screen/Loading/Loading';
 import {LoadingDots, OrtherLoading, Thu} from './component/Loading/index';
@@ -37,13 +38,13 @@ import Custom from './Screen/Rating/Custom';
 
 import HeaderTab from './component/HeaderTopTab/HeaderTab';
 import HeaderTop from './Screen/Header/index';
-import LiquidNavigation from './Screen/BottomTab/Component/LiquidNavigation';
-import LiquidSwipe from './Screen/BottomTab/Component/LiquidSwipe';
-import TryLiquidSwipe from './Screen/BottomTab/Component/TryLiquidSwipe';
+import LiquidNavigation from './Screen/BottomTab/component/LiquidNavigation';
+import LiquidSwipe from './Screen/BottomTab/component/LiquidSwipe';
+import TryLiquidSwipe from './Screen/BottomTab/component/TryLiquidSwipe';
 
 import Svg from "./Screen/SvgScreen/Index";
-import Sinusoidal from './Screen/SvgScreen/Component/Sinusoidal';
-import MakerMap from './Screen/SvgScreen/Component/MakerMap';
+import Sinusoidal from './Screen/SvgScreen/component/Sinusoidal';
+import MakerMap from './Screen/SvgScreen/component/MakerMap';
 
 import HeadBubbleChat from "./Screen/ChatHeadBubble/index";
 import { BubbleChat } from './component/ChatHeadBubble';
@@ -60,6 +61,8 @@ import BannerCarousel from './Screen/Banner/BannerCarousel';
 import Swipeable from "./Screen/Swipeable/Swipeable"
 import SwipeableList from './component/Swipeable/SwipeableList';
 
+import Horizontal from "./Screen/Menu/Horizontal";
+import {MenuHorizontal} from "./component/Menu/MenuHorizontal";
 
 const screenOptions = {
   headerTransparent: true,
@@ -116,7 +119,7 @@ export const App = () => {
 
         {/* Bottom Tab */}
         <Stack.Screen name="IndexBottomTab" component={IndexBottomTab} options={optionsView('BottomTab')} />
-        <Stack.Screen name="BottomTab" component={BottomTab} />
+        <Stack.Screen name="BottomTab" component={BottomTabScreen} />
         <Stack.Screen name="TBottomTabScreen" component={TBottomTabScreen} />
         <Stack.Screen name="LiquidNavigation" component={LiquidNavigation} options={screenOptions} />
         <Stack.Screen name="LiquidSwipe" component={LiquidSwipe} options={screenOptions} />
@@ -157,6 +160,10 @@ export const App = () => {
         {/* Swipeable */}
         <Stack.Screen name="Swipeable" component={Swipeable} options={optionsView('Swipeable')}/>
         <Stack.Screen name="SwipeableList" component={SwipeableList} options={optionsView('SwipeableList')}/>
+
+        {/* Menu */}
+        <Stack.Screen name="Horizontal" component={Horizontal} options={optionsView('Menu')}/>
+        <Stack.Screen name="menuHorizontal" component={MenuHorizontal} options={optionsView('Menu Horizontal')}/>
 
       </Stack.Navigator>
     </NavigationContainer>

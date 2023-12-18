@@ -1,7 +1,7 @@
-import Home from "./ComponentScreen/Home";
-import Notify from "./ComponentScreen/Notify";
-import Search from "./ComponentScreen/Search";
-import Setting from "./ComponentScreen/Setting";
+import Home from "./componentScreen/Home";
+import Notify from "./componentScreen/Notify";
+import Search from "./componentScreen/Search";
+import Setting from "./componentScreen/Setting";
 
 import HomeLiquid from "./LiquidNavigation/HomeLiquid";
 import HotLiquid from "./LiquidNavigation/HotLiquid";
