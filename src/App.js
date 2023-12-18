@@ -15,7 +15,6 @@ import FlexComponent from './Screen/Flex/FlexComponent';
 import MapView from './Screen/MapView/index';
 import ShowAlert from './Screen/Alert/index';
 
-// import BottomTabScreen from './Screen/BottomTab/Component/BottomTabScreen';
 import BottomTabScreen from "./Screen/BottomTab/component/BottomTabScreen";
 import IndexBottomTab from "./Screen/BottomTab/index";
 import TBottomTabScreen from './Screen/BottomTab/component/TBottomTabScreen';
@@ -61,7 +60,7 @@ import BannerCarousel from './Screen/Banner/BannerCarousel';
 import Swipeable from "./Screen/Swipeable/Swipeable"
 import SwipeableList from './component/Swipeable/SwipeableList';
 import IndexMenu from './Screen/Menu/IndexMenu';
-import { MenuTowRow } from './Component/Menu/MenuTowRow';
+import { MenuTowRow } from './component/Menu/MenuTowRow';
 
 import Horizontal from "./Screen/Menu/Horizontal";
 import {MenuHorizontal} from "./component/Menu/MenuHorizontal";

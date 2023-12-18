@@ -5,7 +5,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import { Rating } from '../../Component';
+import { Rating } from '../../component';
 
 const Custom = () => {
   const [point,setPoint] = useState(undefined);

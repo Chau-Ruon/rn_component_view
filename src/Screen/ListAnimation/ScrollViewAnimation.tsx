@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import React from 'react'
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
-import ItemScrollView from '../../Component/ListAnim/ItemScrollView';
+import ItemScrollView from '../../component/ListAnim/ItemScrollView';
 
 const WORDS = ["What's", 'up', 'mobile', 'devs?'];
 

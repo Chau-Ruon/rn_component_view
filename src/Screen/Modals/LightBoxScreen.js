@@ -7,7 +7,7 @@ import {
     Image,
 } from 'react-native'
 
-import LightBox from "../../Component/Modal/LightBox"
+import LightBox from "../../component/Modal/LightBox"
 
 import { hinh1,hinh2,hinh3 } from '../../assets/indexImage';
 

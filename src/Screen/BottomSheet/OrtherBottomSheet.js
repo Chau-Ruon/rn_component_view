@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { RadioButton } from "react-native-paper";
 
-import {DraggableBottomView} from '../../Component/index'
+import {DraggableBottomView} from '../../component/index'
 import ViewComB from './ViewComB'
 
 

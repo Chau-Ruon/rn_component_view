@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import Slider from "../../../Component/BottomTab/LiquidSwipe/Slider";
-import Slide from '../../../Component/BottomTab/TryLiquidSwipe/Slide';
+import Slider from "../../../component/BottomTab/LiquidSwipe/Slider";
+import Slide from '../../../component/BottomTab/TryLiquidSwipe/Slide';
 
 
 import { food1,food2,food3,food4,food5 } from '../../../assets/indexImage';

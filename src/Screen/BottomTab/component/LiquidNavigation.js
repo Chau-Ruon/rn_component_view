@@ -17,7 +17,7 @@ import {
   SettingLiquid,
   NewPostLiquid,
   PostLiquid,
-} from '../../../Component/BottomTab';
+} from '../../../component/BottomTab';
 import Animated,{
   Extrapolate,
   interpolate,

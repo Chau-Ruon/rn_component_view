@@ -13,7 +13,7 @@ import Carousel from 'react-native-reanimated-carousel';
 import Swiper from 'react-native-swiper';
 
 import { food1, food2, food3, food4, food5 } from '../../assets/indexImage';
-import Banner from '../../Component/Banner/Banner';
+import Banner from '../../component/Banner/Banner';
 import { COLOR, SIZE } from '../../theme';
 
 const BannerCarousel = (props) => {

@@ -12,7 +12,7 @@ import Animated,{
   withSpring,
   withTiming,
 } from 'react-native-reanimated'
-import ItemFlatlist from '../../Component/ListAnim/ItemFlatlist'
+import ItemFlatlist from '../../component/ListAnim/ItemFlatlist'
 import { SIZE } from '../../theme'
 const FlatlistAnimation = () => {
   const data = new Array(20).fill(0).map((_, index) => ({ id: index,name:`Item ${index}` }));

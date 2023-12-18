@@ -11,12 +11,7 @@ import {
   ImageBackground,
   FlatList,
 } from "react-native";
-// import { Banner } from "../../Component/Banner/Banner";
 import {COLOR, SHADOWS, SIZE, TEXT } from "../../theme"
-// import axios from "axios";
-// import { HeaderHome } from "../../Component/Header/HeaderHome";
-// import { DrawerNavigator } from "../Drawer";
-// import { BannerCarousel } from "../../Component/Carousel/BannerCarousel";
 import { useDispatch, useSelector } from "react-redux";
 
 const food1 = require("../../assets/image/food1.jpg");
@@ -32,7 +27,6 @@ export const MenuHorizontal = () => {
   const [counter,setCounter] = useState(0);
   const dispatch = useDispatch();
 //   const value = useSelector((state:any) => state.tong.giaTri)
-  // console.log('value: ', value);
   const carouselItems= [
     {
       id:1,
@@ -115,9 +109,6 @@ export const MenuHorizontal = () => {
 
   return (
     <SafeAreaView style={{backgroundColor:COLOR.white,flex:1}}>
-      {/* <HeaderHome /> */}
-      {/* <BannerCarousel/> */}
-
       {/* Menu */}
       <View style={{marginTop:10,}}>
         <ScrollView horizontal scrollEnabled={true}>
