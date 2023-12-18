@@ -12,8 +12,8 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import {
   HeaderHomeTab,
   HeaderSettingTab,
-} from '../../component/HeaderTopTab/index';
-import {DraggableBottomView} from '../../component/index';
+} from '../../Component/HeaderTopTab/index';
+import {DraggableBottomView} from '../../Component/index';
 
 const Tab = createMaterialTopTabNavigator();
 

@@ -60,6 +60,8 @@ import BannerCarousel from './Screen/Banner/BannerCarousel';
 
 import Swipeable from "./Screen/Swipeable/Swipeable"
 import SwipeableList from './component/Swipeable/SwipeableList';
+import IndexMenu from './Screen/Menu/IndexMenu';
+import { MenuTowRow } from './Component/Menu/MenuTowRow';
 
 import Horizontal from "./Screen/Menu/Horizontal";
 import {MenuHorizontal} from "./component/Menu/MenuHorizontal";

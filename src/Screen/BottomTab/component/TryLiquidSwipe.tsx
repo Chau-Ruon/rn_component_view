@@ -3,8 +3,8 @@ import { Text, View, StyleSheet } from 'react-native';
 
 import { food1,food2,food3,food4,food5 } from '../../../assets/indexImage';
 
-import Slider from '../../../component/BottomTab/TryLiquidSwipe/Slider';
-import Slide from '../../../component/BottomTab/TryLiquidSwipe/Slide';
+import Slider from '../../../Component/BottomTab/TryLiquidSwipe/Slider';
+import Slide from '../../../Component/BottomTab/TryLiquidSwipe/Slide';
 
 const slides = [
   {

@@ -5,7 +5,7 @@ import {
     View,
 } from 'react-native'
 import { createBottomTabNavigator,BottomTabNavigationOptions,BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { Home,Search,Notify,Setting } from '../../../component/BottomTab';
+import { Home,Search,Notify,Setting } from '../../../Component/BottomTab';
 const Tab = createBottomTabNavigator();
 
 const TBottomTabScreen = () => {

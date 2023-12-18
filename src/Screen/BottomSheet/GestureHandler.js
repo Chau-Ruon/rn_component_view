@@ -12,7 +12,7 @@ import {
 import {
     BottomSheet,
     scrollTo
-} from "../../component/index";
+} from "../../Component/index";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 const {height,width} = Dimensions.get("window");
 const SheetBottom = (props) => {

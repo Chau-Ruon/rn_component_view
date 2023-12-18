@@ -4,8 +4,8 @@ import {
     Text,
     TouchableOpacity,
 } from 'react-native'
-import {ShowAlert} from "../../component/Alert/ShowAlert";
-import {AlertEmit} from "../../component/Alert/AlertEmit";
+import {ShowAlert} from "../../Component/Alert/ShowAlert";
+import {AlertEmit} from "../../Component/Alert/AlertEmit";
 const Alert = () => {
     const [show,setShow] = useState(false);
     const buttons = [
